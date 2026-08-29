@@ -20,6 +20,10 @@ on:
     - cron: '3,18,33,48 * * * *'
   workflow_dispatch:
 
+# Ουδέτερη αλλαγή 29/08/2026: κανονικό commit πάνω στο υπάρχον ιστορικό, για να δούμε αν
+# το GitHub καταχωρεί το schedule όταν ΔΕΝ έχει προηγηθεί force-push. Τα προηγούμενα
+# deploys έκαναν git init + push -f και ο scheduler δεν παρέδωσε ποτέ event.
+
 permissions:
   contents: write
 
