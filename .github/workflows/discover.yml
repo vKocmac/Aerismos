@@ -1,0 +1,42 @@
+# ΕΦΑΠΑΞ σάρωση για κοντινούς σταθμούς WU.
+#
+# ΔΕΝ έχει schedule επίτηδες: φορτώνει ~140 σελίδες. Τρέχει μόνο με το χέρι, όταν
+# θέλουμε να ξαναδιαλέξουμε σταθμούς ανά τοποθεσία.
+#
+# Το αποτέλεσμα (discovered.json) ΔΕΝ το διαβάζει η σελίδα — είναι υλικό απόφασης:
+# ποιοι κωδικοί μπαίνουν στο LOCATIONS[...].pws του index.html.
+
+name: Ανακάλυψη σταθμών (εφάπαξ)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Εγκατάσταση Playwright
+        run: npm i -D playwright@1.47.0 && npx playwright install --with-deps chromium
+
+      - name: Σάρωση
+        run: node discover_pws.js
+
+      - name: Commit αποτελέσματος
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain discovered.json)" ]; then
+            git add discovered.json
+            git commit -m "Ανακάλυψη σταθμών $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git push
+          fi

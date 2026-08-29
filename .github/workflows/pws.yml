@@ -1,0 +1,56 @@
+# Τοπικοί σταθμοί Weather Underground → pws.json
+#
+# ΓΙΑΤΙ: το Open-Meteo δεν είναι μέτρηση αλλά μοντέλο σε κελί ~7 km, που δεν λύνει τη
+# θαλάσσια αύρα. Οι σταθμοί της γειτονιάς μετράνε πραγματικά — αλλά το api.weather.com
+# θέλει κλειδί που δίνεται μόνο σε ιδιοκτήτες PWS (επιβεβαιωμένο: 401 Missing apiKey).
+#
+# ΠΩΣ: φορτώνουμε τη δημόσια σελίδα με headless browser και **υποκλέπτουμε την απάντηση
+# του API που κάνει η ίδια η σελίδα**. Δεν χρησιμοποιούμε δικό μας ή κλεμμένο κλειδί.
+# Αυτό είναι πολύ σταθερότερο από CSS selectors: το JSON schema αλλάζει σπάνια.
+#
+# ΕΥΘΡΑΥΣΤΟ ΕΞ ΟΡΙΣΜΟΥ: αν αλλάξει η σελίδα τους, σπάει. Γι' αυτό η σελίδα έχει
+# επιλογέα πηγής και υποχωρεί μόνη της στο μοντέλο όταν το pws.json λείπει ή παλιώσει.
+
+name: PWS τοπικοί σταθμοί
+
+on:
+  schedule:
+    # ΟΧΙ '*/15': πέφτει στα :00/:15/:30/:45, τις ώρες αιχμής του GitHub, όπου τα
+    # scheduled runs καθυστερούν ή χάνονται. Μετατοπισμένα λεπτά, ίδια συχνότητα.
+    - cron: '3,18,33,48 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pws
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Εγκατάσταση Playwright
+        run: npm i -D playwright@1.47.0 && npx playwright install --with-deps chromium
+
+      - name: Συλλογή σταθμών
+        run: node scrape_pws.js
+
+      - name: Commit αν άλλαξε
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain pws.json)" ]; then
+            git add pws.json
+            git commit -m "PWS $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git push
+          else
+            echo "Καμία αλλαγή."
+          fi

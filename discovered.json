@@ -1,0 +1,705 @@
+{
+ "scanned": 152,
+ "found": 40,
+ "at": "2026-08-29T14:24:04.752Z",
+ "nearest": {
+  "spiti": [
+   {
+    "id": "IARGYR9",
+    "km": 0.59,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IARGYR10",
+    "km": 0.62,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IARGYR7",
+    "km": 0.69,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IARGYR4",
+    "km": 1.31,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IARGYR5",
+    "km": 1.57,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IILIOU4",
+    "km": 1.7,
+    "neighborhood": "Ilioupoli"
+   }
+  ],
+  "agdim": [
+   {
+    "id": "IALIMO14",
+    "km": 0.33,
+    "neighborhood": "Alimos Municipality"
+   },
+   {
+    "id": "IALIMO16",
+    "km": 0.43,
+    "neighborhood": "Alimos Municipality"
+   },
+   {
+    "id": "IALIMO15",
+    "km": 0.65,
+    "neighborhood": "Alimos Municipality"
+   },
+   {
+    "id": "IILIOU4",
+    "km": 1.21,
+    "neighborhood": "Ilioupoli"
+   },
+   {
+    "id": "IARGYR5",
+    "km": 1.23,
+    "neighborhood": "Argyroupoli"
+   },
+   {
+    "id": "IARGYR4",
+    "km": 1.35,
+    "neighborhood": "Argyroupoli"
+   }
+  ],
+  "schinias": [
+   {
+    "id": "IMARAT24",
+    "km": 1.37,
+    "neighborhood": "Marathon"
+   },
+   {
+    "id": "IMARAT19",
+    "km": 2.85,
+    "neighborhood": "Marathon"
+   },
+   {
+    "id": "IMARAT16",
+    "km": 3.1,
+    "neighborhood": "Marathon"
+   },
+   {
+    "id": "IMARAT9",
+    "km": 5.66,
+    "neighborhood": "Marathon"
+   },
+   {
+    "id": "INEAMA2",
+    "km": 8.29,
+    "neighborhood": "Nea Makri"
+   },
+   {
+    "id": "INEAMA8",
+    "km": 9.11,
+    "neighborhood": "Nea Makri"
+   }
+  ]
+ },
+ "stations": [
+  {
+   "id": "IARGYR1",
+   "lat": 38.284776,
+   "lon": 21.861194,
+   "neighborhood": "Argyra",
+   "obsTime": "2026-08-29T13:51:43Z",
+   "temp": 89.7,
+   "dewpt": 68.1,
+   "metric": false,
+   "dist": {
+    "spiti": 170.8,
+    "agdim": 168.72,
+    "schinias": 187.07
+   }
+  },
+  {
+   "id": "IARGYR4",
+   "lat": 37.911572,
+   "lon": 23.739884,
+   "neighborhood": "Argyroupoli",
+   "obsTime": "2026-08-29T13:52:04Z",
+   "temp": 88.5,
+   "dewpt": 64.6,
+   "metric": false,
+   "dist": {
+    "spiti": 1.31,
+    "agdim": 1.35,
+    "schinias": 35.14
+   }
+  },
+  {
+   "id": "IARGYR5",
+   "lat": 37.911896,
+   "lon": 23.736981,
+   "neighborhood": "Argyroupoli",
+   "obsTime": "2026-08-29T13:52:16Z",
+   "temp": 86.9,
+   "dewpt": 59.9,
+   "metric": false,
+   "dist": {
+    "spiti": 1.57,
+    "agdim": 1.23,
+    "schinias": 35.27
+   }
+  },
+  {
+   "id": "IARGYR6",
+   "lat": 39.425675,
+   "lon": 20.005394,
+   "neighborhood": "Argyrades",
+   "obsTime": "2026-08-29T13:52:21Z",
+   "temp": 89.6,
+   "dewpt": 82.2,
+   "metric": false,
+   "dist": {
+    "spiti": 366.41,
+    "agdim": 364.22,
+    "schinias": 373.6
+   }
+  },
+  {
+   "id": "IARGYR7",
+   "lat": 37.916368,
+   "lon": 23.749216,
+   "neighborhood": "Argyroupoli",
+   "obsTime": "2026-08-29T13:52:33Z",
+   "temp": 86.7,
+   "dewpt": 59.5,
+   "metric": false,
+   "dist": {
+    "spiti": 0.69,
+    "agdim": 1.52,
+    "schinias": 34.21
+   }
+  },
+  {
+   "id": "IARGYR9",
+   "lat": 37.911539,
+   "lon": 23.748164,
+   "neighborhood": "Argyroupoli",
+   "obsTime": "2026-08-29T13:51:59Z",
+   "temp": 87.9,
+   "dewpt": 60.4,
+   "metric": false,
+   "dist": {
+    "spiti": 0.59,
+    "agdim": 1.77,
+    "schinias": 34.68
+   }
+  },
+  {
+   "id": "IARGYR10",
+   "lat": 37.916041,
+   "lon": 23.749936,
+   "neighborhood": "Argyroupoli",
+   "obsTime": "2026-08-29T13:52:53Z",
+   "temp": 89.9,
+   "dewpt": 60.7,
+   "metric": false,
+   "dist": {
+    "spiti": 0.62,
+    "agdim": 1.6,
+    "schinias": 34.19
+   }
+  },
+  {
+   "id": "IELLIN5",
+   "lat": 37.891992,
+   "lon": 23.751819,
+   "neighborhood": "Elliniko",
+   "obsTime": "2026-08-29T13:54:25Z",
+   "temp": 87.8,
+   "dewpt": 59.2,
+   "metric": false,
+   "dist": {
+    "spiti": 2.24,
+    "agdim": 3.76,
+    "schinias": 36.21
+   }
+  },
+  {
+   "id": "IGLYFA4",
+   "lat": 37.885052,
+   "lon": 23.763163,
+   "neighborhood": "Glyfada",
+   "obsTime": "2026-08-29T13:56:09Z",
+   "temp": 91.2,
+   "dewpt": 61.3,
+   "metric": false,
+   "dist": {
+    "spiti": 3.09,
+    "agdim": 4.92,
+    "schinias": 36.27
+   }
+  },
+  {
+   "id": "IGLYFA7",
+   "lat": 37.88905,
+   "lon": 23.773987,
+   "neighborhood": "Harris",
+   "obsTime": "2026-08-29T13:48:11Z",
+   "temp": 89.2,
+   "dewpt": null,
+   "metric": false,
+   "dist": {
+    "spiti": 3.06,
+    "agdim": 5.14,
+    "schinias": 35.37
+   }
+  },
+  {
+   "id": "IGLYFA8",
+   "lat": 37.874489,
+   "lon": 23.762228,
+   "neighborhood": "Glyfada01",
+   "obsTime": "2026-08-29T13:42:39Z",
+   "temp": 88,
+   "dewpt": null,
+   "metric": false,
+   "dist": {
+    "spiti": 4.22,
+    "agdim": 5.91,
+    "schinias": 37.29
+   }
+  },
+  {
+   "id": "IALIMO5",
+   "lat": 37.915907,
+   "lon": 23.71029,
+   "neighborhood": "Alimos",
+   "obsTime": "2026-08-29T13:58:31Z",
+   "temp": 87.2,
+   "dewpt": 63.8,
+   "metric": false,
+   "dist": {
+    "spiti": 3.93,
+    "agdim": 2.2,
+    "schinias": 36.49
+   }
+  },
+  {
+   "id": "IALIMO14",
+   "lat": 37.925044,
+   "lon": 23.736107,
+   "neighborhood": "Alimos Municipality",
+   "obsTime": "2026-08-29T13:59:46Z",
+   "temp": 86.2,
+   "dewpt": 61.7,
+   "metric": false,
+   "dist": {
+    "spiti": 2.19,
+    "agdim": 0.33,
+    "schinias": 34.22
+   }
+  },
+  {
+   "id": "IALIMO15",
+   "lat": 37.923588,
+   "lon": 23.741171,
+   "neighborhood": "Alimos Municipality",
+   "obsTime": "2026-08-29T14:00:22Z",
+   "temp": 90.5,
+   "dewpt": 64.1,
+   "metric": false,
+   "dist": {
+    "spiti": 1.76,
+    "agdim": 0.65,
+    "schinias": 34.04
+   }
+  },
+  {
+   "id": "IALIMO16",
+   "lat": 37.918869,
+   "lon": 23.734531,
+   "neighborhood": "Alimos Municipality",
+   "obsTime": "2026-08-29T14:00:51Z",
+   "temp": 86.7,
+   "dewpt": 58.8,
+   "metric": false,
+   "dist": {
+    "spiti": 1.94,
+    "agdim": 0.43,
+    "schinias": 34.82
+   }
+  },
+  {
+   "id": "IILIOU4",
+   "lat": 37.925961,
+   "lon": 23.746945,
+   "neighborhood": "Ilioupoli",
+   "obsTime": "2026-08-29T14:01:35Z",
+   "temp": 87.4,
+   "dewpt": 58.8,
+   "metric": false,
+   "dist": {
+    "spiti": 1.7,
+    "agdim": 1.21,
+    "schinias": 33.51
+   }
+  },
+  {
+   "id": "IILIOU7",
+   "lat": 37.944343,
+   "lon": 23.760021,
+   "neighborhood": "Alamanas Home",
+   "obsTime": "2026-08-29T13:52:14Z",
+   "temp": 86.4,
+   "dewpt": null,
+   "metric": false,
+   "dist": {
+    "spiti": 3.62,
+    "agdim": 3.33,
+    "schinias": 31.22
+   }
+  },
+  {
+   "id": "IDAFNI6",
+   "lat": 39.953141,
+   "lon": 25.165123,
+   "neighborhood": "Dafni",
+   "obsTime": "2026-08-29T14:03:54Z",
+   "temp": 83.6,
+   "dewpt": 60,
+   "metric": false,
+   "dist": {
+    "spiti": 257.66,
+    "agdim": 257.48,
+    "schinias": 224
+   }
+  },
+  {
+   "id": "INEASM6",
+   "lat": 37.94793,
+   "lon": 23.719492,
+   "neighborhood": "Nea Smyrni",
+   "obsTime": "2026-08-29T14:05:16Z",
+   "temp": 87.4,
+   "dewpt": 64.2,
+   "metric": false,
+   "dist": {
+    "spiti": 5.05,
+    "agdim": 3.07,
+    "schinias": 33.4
+   }
+  },
+  {
+   "id": "IVOULA6",
+   "lat": 37.849998,
+   "lon": 23.75,
+   "neighborhood": "Panorama",
+   "obsTime": "2026-08-29T14:06:39Z",
+   "temp": 86.7,
+   "dewpt": 58.8,
+   "metric": false,
+   "dist": {
+    "spiti": 6.91,
+    "agdim": 8.21,
+    "schinias": 40.16
+   }
+  },
+  {
+   "id": "IKALLI8",
+   "lat": 56.242,
+   "lon": 15.299,
+   "neighborhood": "Kallinge",
+   "obsTime": "2026-08-29T14:08:53Z",
+   "temp": 65.5,
+   "dewpt": 59.9,
+   "metric": false,
+   "dist": {
+    "spiti": 2132.64,
+    "agdim": 2131.03,
+    "schinias": 2111.89
+   }
+  },
+  {
+   "id": "IAGIOS4",
+   "lat": 40.643303,
+   "lon": 22.966133,
+   "neighborhood": "Agios Pavlos",
+   "obsTime": "2026-08-29T14:09:54Z",
+   "temp": 86.7,
+   "dewpt": 68.1,
+   "metric": false,
+   "dist": {
+    "spiti": 311.19,
+    "agdim": 309.64,
+    "schinias": 290.53
+   }
+  },
+  {
+   "id": "IMARAT2",
+   "lat": 37.709641,
+   "lon": 26.661722,
+   "neighborhood": "Marathokabos",
+   "obsTime": "2026-08-29T14:07:20Z",
+   "temp": 82.6,
+   "dewpt": 62.6,
+   "metric": false,
+   "dist": {
+    "spiti": 256.35,
+    "agdim": 258.27,
+    "schinias": 238.95
+   }
+  },
+  {
+   "id": "IMARAT4",
+   "lat": 39.939014,
+   "lon": 15.760911,
+   "neighborhood": "Maratea",
+   "obsTime": "2026-08-29T14:10:00Z",
+   "temp": 87.6,
+   "dewpt": 79.6,
+   "metric": false,
+   "dist": {
+    "spiti": 727.01,
+    "agdim": 724.87,
+    "schinias": 738.02
+   }
+  },
+  {
+   "id": "IMARAT5",
+   "lat": -21.0359,
+   "lon": -40.819636,
+   "neighborhood": "Marataízes",
+   "obsTime": "2026-08-29T14:11:30Z",
+   "temp": 90.5,
+   "dewpt": 72.7,
+   "metric": false,
+   "dist": {
+    "spiti": 9397.58,
+    "agdim": 9396.65,
+    "schinias": 9429.81
+   }
+  },
+  {
+   "id": "IMARAT9",
+   "lat": 38.159327,
+   "lon": 24.060641,
+   "neighborhood": "Marathon",
+   "obsTime": "2026-08-29T14:12:31Z",
+   "temp": 91.5,
+   "dewpt": 60.9,
+   "metric": false,
+   "dist": {
+    "spiti": 38.39,
+    "agdim": 38.88,
+    "schinias": 5.66
+   }
+  },
+  {
+   "id": "IMARAT10",
+   "lat": 37.057329,
+   "lon": 21.577901,
+   "neighborhood": "Marathopoli",
+   "obsTime": "2026-08-29T14:12:30Z",
+   "temp": 83.6,
+   "dewpt": 74.4,
+   "metric": false,
+   "dist": {
+    "spiti": 214.3,
+    "agdim": 213.16,
+    "schinias": 245.49
+   }
+  },
+  {
+   "id": "IMARAT15",
+   "lat": 38.583993,
+   "lon": -8.779371,
+   "neighborhood": "Marateca",
+   "obsTime": "2026-08-29T14:12:39Z",
+   "temp": 83.8,
+   "dewpt": 60.2,
+   "metric": false,
+   "dist": {
+    "spiti": 2827.11,
+    "agdim": 2825.06,
+    "schinias": 2842.45
+   }
+  },
+  {
+   "id": "IMARAT16",
+   "lat": 38.144,
+   "lon": 24.029,
+   "neighborhood": "Marathon",
+   "obsTime": "2026-08-29T14:10:00Z",
+   "temp": 85.1,
+   "dewpt": 58.7,
+   "metric": false,
+   "dist": {
+    "spiti": 35.24,
+    "agdim": 35.69,
+    "schinias": 3.1
+   }
+  },
+  {
+   "id": "IMARAT19",
+   "lat": 38.168251,
+   "lon": 24.023777,
+   "neighborhood": "Marathon",
+   "obsTime": "2026-08-29T14:14:18Z",
+   "temp": 84.3,
+   "dewpt": 54.5,
+   "metric": false,
+   "dist": {
+    "spiti": 36.97,
+    "agdim": 37.29,
+    "schinias": 2.85
+   }
+  },
+  {
+   "id": "IMARAT23",
+   "lat": 38.583,
+   "lon": -8.689,
+   "neighborhood": "Marateca",
+   "obsTime": "2026-08-29T14:15:25Z",
+   "temp": 89.4,
+   "dewpt": 56.4,
+   "metric": false,
+   "dist": {
+    "spiti": 2819.36,
+    "agdim": 2817.32,
+    "schinias": 2834.72
+   }
+  },
+  {
+   "id": "IMARAT24",
+   "lat": 38.148297,
+   "lon": 24.009559,
+   "neighborhood": "Marathon",
+   "obsTime": "2026-08-29T14:15:18Z",
+   "temp": 86.1,
+   "dewpt": 56.8,
+   "metric": false,
+   "dist": {
+    "spiti": 34.47,
+    "agdim": 34.82,
+    "schinias": 1.37
+   }
+  },
+  {
+   "id": "IMARAT26",
+   "lat": -34.15685,
+   "lon": -61.696603,
+   "neighborhood": "María Teresa",
+   "obsTime": "2026-08-29T14:15:00Z",
+   "temp": 66.4,
+   "dewpt": 48.1,
+   "metric": false,
+   "dist": {
+    "spiti": 11903.48,
+    "agdim": 11902.49,
+    "schinias": 11935.33
+   }
+  },
+  {
+   "id": "INEAMA2",
+   "lat": 38.085576,
+   "lon": 23.9605,
+   "neighborhood": "Nea Makri",
+   "obsTime": "2026-08-29T14:16:06Z",
+   "temp": 82.2,
+   "dewpt": 61.1,
+   "metric": false,
+   "dist": {
+    "spiti": 26.4,
+    "agdim": 26.88,
+    "schinias": 8.29
+   }
+  },
+  {
+   "id": "INEAMA8",
+   "lat": 38.074604,
+   "lon": 23.974275,
+   "neighborhood": "Nea Makri",
+   "obsTime": "2026-08-29T14:17:29Z",
+   "temp": null,
+   "dewpt": null,
+   "metric": false,
+   "dist": {
+    "spiti": 26.39,
+    "agdim": 27,
+    "schinias": 9.11
+   }
+  },
+  {
+   "id": "IRAFIN2",
+   "lat": 38.039036,
+   "lon": 24.000698,
+   "neighborhood": "Rafina",
+   "obsTime": "2026-08-29T14:17:46Z",
+   "temp": 78.8,
+   "dewpt": 62.4,
+   "metric": false,
+   "dist": {
+    "spiti": 25.77,
+    "agdim": 26.73,
+    "schinias": 12.86
+   }
+  },
+  {
+   "id": "IRAFIN6",
+   "lat": 38.023303,
+   "lon": 24.000234,
+   "neighborhood": "Rafina",
+   "obsTime": "2026-08-29T14:18:39Z",
+   "temp": 80.2,
+   "dewpt": 65.1,
+   "metric": false,
+   "dist": {
+    "spiti": 24.82,
+    "agdim": 25.89,
+    "schinias": 14.61
+   }
+  },
+  {
+   "id": "IRAFIN7",
+   "lat": 38.034316,
+   "lon": 23.983611,
+   "neighborhood": "Rafina",
+   "obsTime": "2026-08-29T14:18:36Z",
+   "temp": 79,
+   "dewpt": 62.1,
+   "metric": false,
+   "dist": {
+    "spiti": 24.23,
+    "agdim": 25.17,
+    "schinias": 13.43
+   }
+  },
+  {
+   "id": "IPIKER1",
+   "lat": 38.000473,
+   "lon": 23.933405,
+   "neighborhood": "Pikermi",
+   "obsTime": "2026-08-29T14:18:00Z",
+   "temp": 86.7,
+   "dewpt": 62,
+   "metric": false,
+   "dist": {
+    "spiti": 18.49,
+    "agdim": 19.52,
+    "schinias": 18
+   }
+  },
+  {
+   "id": "IARTEM2",
+   "lat": 37.930592,
+   "lon": 24.003714,
+   "neighborhood": "Artemis",
+   "obsTime": "2026-08-29T14:20:42Z",
+   "temp": 84.2,
+   "dewpt": 62.2,
+   "metric": false,
+   "dist": {
+    "spiti": 21.93,
+    "agdim": 23.69,
+    "schinias": 24.92
+   }
+  }
+ ]
+}

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Να ανοίξω τα παράθυρα;</title>
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --line:#2a323d; --ink:#e6edf3; --dim:#8b949e;
+  --good:#2ea043; --bad:#d1242f; --warn:#bb8009; --idle:#4b5563; --accent:#58a6ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding:14px 14px calc(14px + env(safe-area-inset-bottom)); max-width:560px; margin:0 auto;
+}
+h1{font-size:15px;font-weight:600;color:var(--dim);letter-spacing:.02em}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+select,input{
+  background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;
+  padding:8px 10px;font:inherit;font-variant-numeric:tabular-nums;
+}
+select{flex:1;min-width:0}
+#stamp{font-size:12px;color:var(--dim);margin-top:6px;font-variant-numeric:tabular-nums}
+
+#verdict{margin:14px 0;border-radius:14px;padding:18px 16px;text-align:center;border:1px solid transparent}
+#verdict.good{background:#0f2f18;border-color:var(--good)}
+#verdict.bad{background:#2d0f12;border-color:var(--bad)}
+#verdict.warn{background:#2b2005;border-color:var(--warn)}
+#verdict.idle{background:#1a1f26;border-color:var(--idle)}
+#label{font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.01em}
+#label.sm{font-size:23px}
+#note{margin-top:9px;font-size:15px;color:#c9d1d9;font-variant-numeric:tabular-nums}
+#why{margin-top:7px;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+#water{margin-top:4px;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+#advice div{margin-top:10px;padding:9px 11px;border-radius:9px;font-size:14px;line-height:1.45;text-align:left}
+#advice .y{background:#2b200599;border:1px solid var(--warn);color:#f0c674}
+#advice .w{background:#0d2a4799;border:1px solid #58a6ff;color:#a5d6ff}
+#advice .d{background:#3a1d0299;border:1px solid #f0883e;color:#ffc296}
+#advice .v{background:#241a3d99;border:1px solid #d2a8ff;color:#e2ccff}
+
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:4px}
+th,td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--line);font-size:15px}
+th{font-size:12px;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+td:first-child,th:first-child{text-align:left;color:var(--dim);font-size:13px}
+td.w{font-weight:700;color:var(--accent)}
+table input{width:72px;padding:4px 6px;text-align:right;font-size:15px}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px}
+.card h2{font-size:12px;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px}
+#metar{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;line-height:1.5}
+#metar.ok b{color:var(--good)} #metar.off b{color:var(--warn)}
+#hours{display:flex;gap:8px}
+#hours div{flex:1;text-align:center;background:#0d1117;border:1px solid var(--line);border-radius:9px;padding:8px 4px}
+#hours .h{font-size:12px;color:var(--dim)}
+#hours .v{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums;margin:2px 0}
+#hours .t{font-size:11px}
+.up{color:var(--bad)} .dn{color:var(--good)} .eq{color:var(--dim)}
+#gloss{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:12px}
+#gloss summary{font-size:13px;color:var(--accent);cursor:pointer;font-weight:600}
+#gloss dl{margin-top:10px;font-size:13px;line-height:1.5}
+#gloss dt{color:var(--ink);font-weight:700;margin-top:9px}
+#gloss dd{color:var(--dim);margin-left:0}
+
+#dev{display:none}
+#dev.on{display:block}
+#dev .g{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:13px;color:var(--dim)}
+#dev .g label{flex:1}
+#dev input[type=number]{width:80px}
+#dev select{flex:none;width:auto}
+#devbadge{display:none;background:var(--warn);color:#0d1117;font-size:11px;font-weight:800;
+  padding:2px 7px;border-radius:5px;letter-spacing:.05em}
+#devbadge.on{display:inline-block}
+#chart{width:100%;height:auto;display:block}
+#legend{display:flex;flex-wrap:wrap;gap:9px 14px;margin-top:9px;font-size:11px;color:var(--dim)}
+#legend span{display:flex;align-items:center;gap:5px}
+#legend i{width:15px;height:0;border-top-width:2px;border-top-style:solid;display:inline-block}
+#cap{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.5}
+footer{margin-top:16px;font-size:11px;color:var(--dim);line-height:1.6;text-align:center}
+footer a{color:var(--dim)}
+#devToggle{margin-top:10px;background:none;border:1px solid var(--line);color:var(--dim);
+  border-radius:7px;padding:5px 11px;font:inherit;font-size:11px;cursor:pointer}
+#devToggle.on{border-color:var(--warn);color:var(--warn)}
+#err{background:#2d0f12;border:1px solid var(--bad);border-radius:10px;padding:12px;margin-top:12px;font-size:14px;display:none}
+</style>
+</head>
+<body>
+
+<h1>Να ανοίξω τα παράθυρα; <span id="devbadge">DEV</span></h1>
+<div class="row" style="margin-top:8px">
+  <select id="loc"></select>
+</div>
+<div class="row" id="srcRow" style="margin-top:8px;display:none">
+  <select id="src">
+    <option value="auto">Πηγή: αυτόματα — σταθμός αν υπάρχει</option>
+    <option value="pws">Πηγή: τοπικός σταθμός</option>
+    <option value="model">Πηγή: μοντέλο + διόρθωση</option>
+    <option value="raw">Πηγή: μοντέλο σκέτο</option>
+  </select>
+</div>
+<div id="stamp">φόρτωση…</div>
+
+<div id="dev" class="card">
+  <h2>Developer mode</h2>
+  <div class="g">
+    <label for="devMode">Πηγή δεδομένων</label>
+    <select id="devMode">
+      <option value="live">Live — από τους σταθμούς</option>
+      <option value="manual">Χειροκίνητα</option>
+    </select>
+  </div>
+  <div class="g">
+    <label for="devSeason">Εποχή</label>
+    <select id="devSeason">
+      <option value="auto">Αυτόματα (από τον μήνα)</option>
+      <option value="summer">Καλοκαίρι — 0,5 clo</option>
+      <option value="winter">Χειμώνας — 1,0 clo</option>
+    </select>
+  </div>
+  <div class="g"><label for="devT">Θερμοκρασία έξω °C</label>
+    <input id="devT" type="number" step="0.1" inputmode="decimal"></div>
+  <div class="g"><label for="devTd">Σημείο δρόσου έξω °C</label>
+    <input id="devTd" type="number" step="0.1" inputmode="decimal"></div>
+  <div class="g"><label for="devP">Πίεση hPa</label>
+    <input id="devP" type="number" step="0.1" inputmode="decimal"></div>
+  <div class="g"><label for="devDtd">Διόρθωση σημείου δρόσου K</label>
+    <input id="devDtd" type="number" step="0.1" inputmode="decimal"></div>
+  <div class="g" style="color:#8b949e;font-size:11px;line-height:1.5;display:block">
+    Στο «Χειροκίνητα» η σελίδα αγνοεί τους σταθμούς για τα έξω. Ο έλεγχος METAR
+    απενεργοποιείται. Γύρνα σε «Live» για κανονική λειτουργία.
+  </div>
+</div>
+
+<div id="verdict" class="idle">
+  <div id="label">…</div>
+  <div id="note"></div>
+  <div id="why"></div>
+  <div id="water"></div>
+  <div id="advice"></div>
+</div>
+
+<details id="gloss">
+  <summary>Τι σημαίνουν αυτοί οι αριθμοί;</summary>
+  <dl>
+    <dt>w — περιεκτικότητα υγρασίας (g/kg)</dt>
+    <dd>Πόσα γραμμάρια νερό κουβαλάει κάθε κιλό ξηρού αέρα. <b>Αυτό συγκρίνουμε.</b>
+        Η σχετική υγρασία (RH) δεν κάνει για σύγκριση: αλλάζει με τη θερμοκρασία
+        ακόμα κι όταν το νερό μένει ίδιο.</dd>
+    <dt>Δw</dt>
+    <dd>Πόσο νερό έχει ο αέρας έξω σε σχέση με μέσα. <b>Αρνητικό = έξω πιο ξηρά = κέρδος.</b></dd>
+    <dt>ΔT</dt>
+    <dd>Πόσο πιο ζεστά είναι έξω. Θετικό = έξω πιο ζεστά.</dd>
+    <dt>Δh — ενθαλπία (kJ/kg)</dt>
+    <dd>Η συνολική ενέργεια του αέρα, ζέστη και υγρασία μαζί. Αρνητικό σημαίνει ότι
+        ο αέρας έξω «κοστίζει» λιγότερο στο κλιματιστικό.</dd>
+    <dt>PMV</dt>
+    <dd>Δείκτης άνεσης του ASHRAE 55, από −3 (παγωμένος) ως +3 (καυτός). Το <b>0</b>
+        είναι το ιδανικό και μέχρι <b>±0,5</b> θεωρείται άνετο. Ο πρώτος αριθμός είναι
+        ο αέρας που έχεις μέσα, ο δεύτερος ο αέρας που θα βάλεις. Ο χώρος <b>δεν</b>
+        φτάνει ακριβώς εκεί — οι τοίχοι και τα έπιπλα κρατούν τη θερμοκρασία τους.</dd>
+    <dt>«Έως X λίτρα»</dt>
+    <dd>Το νερό που κουβαλάει <b>ο ίδιος ο αέρας</b> του σπιτιού, αν τον αλλάξεις
+        ολόκληρο μία φορά. Δεν περιλαμβάνει το νερό που έχουν ρουφήξει ξύλα, υφάσματα
+        και τοίχοι — γι' αυτό είναι μικρό. Το πραγματικό στέγνωμα γίνεται έμμεσα:
+        κατεβάζεις το w του αέρα και τα υλικά αποδίδουν υγρασία σε αυτόν με την ώρα.</dd>
+  </dl>
+</details>
+
+<div id="err"></div>
+
+<div class="card">
+  <table>
+    <tr><th></th><th>T °C</th><th>RH %</th><th>Δρόσου °C</th><th>w g/kg</th></tr>
+    <tr id="out"><td>ΕΞΩ</td><td>–</td><td>–</td><td>–</td><td class="w">–</td></tr>
+    <tr id="in">
+      <td>ΜΕΣΑ</td>
+      <td><input id="tin" type="number" step="0.1" inputmode="decimal"></td>
+      <td><input id="rhin" type="number" step="1" inputmode="numeric"></td>
+      <td id="tdin">–</td><td class="w" id="win">–</td>
+    </tr>
+  </table>
+  <div id="metar" style="margin-top:10px"></div>
+</div>
+
+<div class="card">
+  <h2>Ζώνη άνεσης — ASHRAE 55</h2>
+  <svg id="chart" viewBox="0 0 330 212" role="img" aria-label="Ψυχρομετρικό διάγραμμα"></svg>
+  <div id="legend"></div>
+  <div id="cap"></div>
+</div>
+
+<div class="card">
+  <h2>Επόμενες ώρες — w έξω</h2>
+  <div id="hours"></div>
+</div>
+
+<footer>
+  Δεδομένα: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+  (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>) ·
+  Τοπικές μετρήσεις: σταθμοί Weather Underground της περιοχής
+  <div><button id="devToggle" type="button">⚙ developer mode</button></div>
+</footer>
+
+<script>
+"use strict";
+
+/* ═══════════ ΣΤΑΘΕΡΕΣ — όλα τα κατώφλια εδώ ═══════════ */
+
+/* — υγρασία — */
+const DW_DEAD          = 1.5;   // g/kg — νεκρή ζώνη (σφάλμα μοντέλου + υγρασιόμετρου)
+const RH_IN_MIN        = 40;    // %    — κάτω από αυτό δεν χρειάζεται εξαερισμός
+
+/* — άνεση (ASHRAE 55 / ISO 7730) — */
+const CLO_SUMMER       = 0.5;   // καλοκαιρινό ντύσιμο
+const CLO_WINTER       = 1.0;   // χειμερινό ντύσιμο
+const WINTER_MONTHS    = [11,12,1,2,3,4]; // Νοέ–Απρ · παράκαμψη με ?season=winter|summer
+const MET              = 1.0;   // «Seated, quiet» — καθιστός στο σπίτι.
+   /* Είχε ανέβει σε 1,2 για να ταιριάζει η ζώνη με το ΤΥΠΩΜΕΝΟ διάγραμμα του 55-1992.
+      Λάθος κριτήριο: το 1,2 περιγράφει όρθιο/ελαφριά δραστηριότητα, και έριχνε το άνω
+      όριο άνεσης στους 26,6 °C — δηλαδή πάνω από 26,6 δεν έβγαινε ποτέ άνεση.
+      Η σελίδα περιγράφει τον χρήστη καθισμένο στο σπίτι, όχι έγγραφο συμμόρφωσης.
+      Με 1,0 η καλοκαιρινή ζώνη γίνεται 24,8-27,7 °C στα 9 g/kg.
+      Η μηχανή PMV επαληθεύτηκε απέναντι στο CBE Thermal Comfort Tool: για
+      27 °C / 40% / 0,1 m/s / met 1,0 / clo 0,61 δίνει 0,440 έναντι 0,44 του CBE. */
+const V_STILL          = 0.10;  // m/s  — ακίνητος αέρας
+const PMV_LIMIT        = 0.5;   // όριο ζώνης άνεσης             ← ΠΡΟΤΥΠΟ
+const W_ASHRAE_MAX     = 12.0;  // g/kg — απόλυτο άνω όριο 55    ← ΠΡΟΤΥΠΟ
+const RH_MIN_ZONE      = 30;    // %    — κάτω όριο ζώνης       ← ΣΥΓΧΡΟΝΗ ΟΔΗΓΙΑ
+   /* Το ASHRAE 55 κατάργησε το κάτω όριο υγρασίας το 2004: θεωρεί ότι η ξηρασία δεν
+      αλλάζει τη ΘΕΡΜΙΚΗ αίσθηση — δεν λέει ότι ο ξηρός αέρας είναι εντάξει, το αφήνει
+      σε πρότυπα υγείας. Χωρίς όριο η ζώνη κατεβαίνει στα 0 g/kg, παραλογισμός ως
+      σύσταση. Παίρνουμε 30% RH από σύγχρονη πηγή (EN 16798-1 Κατ. ΙΙ ≈ 25-60%,
+      οδηγίες υγείας 30-60%). Το παλιό 55-1992 είχε οριζόντια γραμμή στα 4,5 g/kg —
+      συγκρίσιμη με το τυπωμένο διάγραμμα αλλά μόλις 22% RH στους 25 °C, πολύ ξηρά.
+      Χωριστό από τη σύσταση των 40% RH: το ένα λέει «εδώ σταματά η άνεση»,
+      το άλλο «δεν χρειάζεσαι άλλο στέγνωμα». */
+const AIRFLOW_CREDIT_K = 3.0;   // K περιθώριο λόγω ροής αέρα ← ΑΡΧΗ ΠΡΟΤΥΠΟΥ,
+                                //   ΔΙΚΗ ΜΑΣ Η ΑΠΛΟΠΟΙΗΣΗ
+   /* Το ASHRAE 55 ΑΝΑΓΝΩΡΙΖΕΙ ότι η αυξημένη ταχύτητα αέρα επιτρέπει υψηλότερη
+      θερμοκρασία: πάνω από 0,20 m/s ορίζει τη μέθοδο «Elevated Air Speed Comfort
+      Zone», που υπολογίζει την αντιστάθμιση μέσω SET (Gagge two-node). Δική μας
+      είναι ΜΟΝΟ η απλοποίηση σε σταθερά 3 K αντί για υπολογισμό SET — δεν ξέρουμε
+      την πραγματική ταχύτητα αέρα στο δωμάτιο. Το ίδιο επεκτατικό περιθώριο
+      φαίνεται ως ζώνη «natural ventilation» στα βιοκλιματικά διαγράμματα (Givoni),
+      όπου πάει και παραπάνω· τα 3 K είναι συντηρητική ανάγνωση. */
+const PMV_WORSE_MAX    = 0.30;  // πόσο χειρότερα δέχεσαι (≈1 K) ← ΔΙΚΟ ΜΑΣ
+const MRT_OFFSET_K     = 0.0;   // τοίχοι πιο ζεστοί από τον αέρα
+
+/* — υπομονή vs αφυγραντήρας — */
+const WAIT_HORIZON_H   = 6;    // h  — ως πότε «αξίζει να περιμένεις» αντί να ανοίξεις
+const DEHUM_HORIZON_H  = 12;   // h  — αν ούτε εδώ ανοίγει, ο εξαερισμός δεν είναι η λύση
+const DEHUM_RH_IN      = 60;   // %  — πάνω από αυτό η υγρασία μέσα είναι πρόβλημα
+const DEHUM_W_IN       = 12.0; // g/kg — ή σε απόλυτη περιεκτικότητα (όριο ASHRAE 55)
+
+/* — έλεγχος πηγών & νερό — */
+const PWS_SPREAD_MAX   = 3.0;   // K — διασπορά σημείου δρόσου μεταξύ σταθμών
+   /* Ήταν 2,0 και ήταν πολύ σφιχτό για ερασιτεχνικό δίκτυο: στη σάρωση 29/08 ο Σχοινιάς
+      έβγαζε 2,3 K μεταξύ των τριών κοντινότερων, δηλαδή μόνιμο ΟΡΙΑΚΟ. Με τρεις σταθμούς
+      η ΔΙΑΜΕΣΟΣ ήδη πετάει έξω τον έναν χαλασμένο· η διασπορά μένει ως χονδρικός έλεγχος
+      «είμαστε στην ίδια αέρια μάζα;», όχι ως μέτρο θορύβου αισθητήρων.
+      3 K σημείου δρόσου ≈ 2 g/kg — εκεί η απόφαση όντως γίνεται αναξιόπιστη. */
+const PWS_MAX_AGE_H    = 2;     // h — πιο παλιά μέτρηση σταθμού αγνοείται
+const FILL_FACTOR      = 0.80;  // ωφέλιμος όγκος / μικτός
+const RHO_AIR          = 1.2;   // kg/m³
+
+/* dtd = διόρθωση σημείου δρόσου (K) που προστίθεται στην πρόβλεψη του μοντέλου.
+   ΓΙΑΤΙ: το Open-Meteo ΔΕΝ είναι μέτρηση — είναι έξοδος μοντέλου σε κελί ~7 km, που
+   ανακατεύει ακτή, αστικό ιστό και βουνό. Η θερμοκρασία βγαίνει σωστή (0,1 K από τοπικό
+   σταθμό), η υγρασία όχι.
+   ΠΩΣ ΒΓΗΚΕ το +3,1 στην Αργυρούπολη: 29/08/2026, τοπικός σταθμός WU 31,7 °C / 37% RH
+   → σημείο δρόσου 15,2 °C· το μοντέλο έδινε 12,1.
+   ⚠ ΜΙΑ μόνο σύγκριση, με σταθμό που δηλώνει 1021 hPa ενώ το LGAV μετράει QNH 1016 —
+   5 hPa απόκλιση, δηλαδή αβαθμονόμητο όργανο. Ξαναδές το με περισσότερες μετρήσεις,
+   κατά προτίμηση με δικό σου αισθητήρα έξω. Παράκαμψη: ?dtd=  ή το developer mode. */
+const LOCATIONS = {
+  //                                                                        dtd  σταθμός αναφοράς (WU)
+  spiti:    {name:"Σπίτι – Αργυρούπολη", lat:37.912024, lon:23.754822, vol:222, dtd: 3.1,
+             pws:["IARGYR9","IARGYR10","IARGYR7"]},
+  schinias: {name:"Σχοινιάς",            lat:38.154667, lon:23.996191, vol:180, dtd: 0,
+             pws:["IMARAT24","IMARAT19","IMARAT16"]},
+  agdim:    {name:"Άγ. Δημήτριος",       lat:37.922710, lon:23.733803, vol:192, dtd: 0,
+             pws:["IALIMO14","IALIMO16","IILIOU4"]}
+};
+/* pws = τοπικοί σταθμοί Weather Underground. Παίρνουμε τη ΔΙΑΜΕΣΟ όλων όσων έχουν
+   φρέσκια μέτρηση, όχι τον πρώτο — τρεις σταθμοί, ένας χαλασμένος ψηφίζεται έξω.
+   Επιλέχθηκαν από τη σάρωση 29/08 (152 κωδικοί, 40 απάντησαν) με κριτήριο απόσταση ΚΑΙ
+   συμφωνία: Αργυρούπολη 0,59-0,69 km με διασπορά 0,6 K· ο IARGYR4 στα 1,31 km απέκλινε
+   2,5 K και μένει έξω. Στον Άλιμο ο IALIMO15 (0,65 km) απέκλινε και αντικαταστάθηκε από
+   τον IILIOU4 (1,21 km). Ξαναδές με «Ανακάλυψη σταθμών» αν αλλάξει κάτι.
+   Τα δεδομένα ΔΕΝ έρχονται από τον browser: το dashboard τους είναι κέλυφος εφαρμογής
+   (525 KB HTML, μηδέν τιμές) και το επίσημο API θέλει κλειδί που δίνεται μόνο σε
+   ιδιοκτήτες σταθμών. Τα γράφει το GitHub Action «PWS τοπικοί σταθμοί» στο pws.json,
+   που η σελίδα διαβάζει ως δικό της αρχείο. Βλ. scrape_pws.js. */
+const DEFAULTS = {loc:"spiti", t:26, rh:55};
+
+/* ═══════════ Ψυχρομετρία (SI) ═══════════ */
+const psat   = T => 0.61094*Math.exp(17.625*T/(243.04+T));   // kPa
+const wOf    = (pv,p) => 622*pv/(p-pv);                      // g/kg ξηρού αέρα
+const pvOfW  = (w,p) => p*w/(622+w);                         // kPa
+const dewOf  = pv => {const a=Math.log(pv/0.61094); return 243.04*a/(17.625-a);};
+const enthOf = (T,w) => 1.006*T + (w/1000)*(2501+1.86*T);    // kJ/kg
+const rhOf   = (T,pv) => 100*pv/psat(T);                     // %
+const n1 = x => x.toFixed(1);
+const n2 = x => x.toFixed(2);
+
+/* ═══════════ PMV — Fanger, κατά ISO 7730 ═══════════ */
+function pmv(ta, tr, vel, rh, met, clo){
+  const pa  = rh*10*Math.exp(16.6536 - 4030.183/(ta+235));   // Pa
+  const icl = 0.155*clo;
+  const m   = met*58.15;
+  const fcl = icl <= 0.078 ? 1.0 + 1.29*icl : 1.05 + 0.645*icl;
+  const hcf = 12.1*Math.sqrt(vel);
+  const taa = ta + 273, tra = tr + 273;
+
+  const p1 = icl*fcl, p2 = p1*3.96, p3 = p1*100, p4 = p1*taa;
+  const p5 = 308.7 - 0.028*m + p2*Math.pow(tra/100, 4);
+
+  let xn = (taa + (35.5-ta)/(3.5*icl+0.1))/100, xf = xn, hc, hcn, i = 0;
+  do{
+    xf  = (xf + xn)/2;
+    hcn = 2.38*Math.pow(Math.abs(100*xf - taa), 0.25);
+    hc  = hcf > hcn ? hcf : hcn;
+    xn  = (p5 + p4*hc - p2*Math.pow(xf,4))/(100 + p3*hc);
+  } while (Math.abs(xn-xf) > 0.00015 && ++i < 150);
+
+  const tcl = 100*xn - 273;
+  const hl1 = 3.05*0.001*(5733 - 6.99*m - pa);                  // διαπνοή δέρματος
+  const hl2 = m > 58.15 ? 0.42*(m - 58.15) : 0;                 // εφίδρωση
+  const hl3 = 1.7*0.00001*m*(5867 - pa);                        // λανθάνον αναπνοής
+  const hl4 = 0.0014*m*(34 - ta);                               // αισθητό αναπνοής
+  const hl5 = 3.96*fcl*(Math.pow(xn,4) - Math.pow(tra/100,4));  // ακτινοβολία
+  const hl6 = fcl*hc*(tcl - ta);                                // συναγωγή
+
+  return (0.303*Math.exp(-0.036*m) + 0.028)*(m - hl1 - hl2 - hl3 - hl4 - hl5 - hl6);
+}
+
+/* PMV κατάστασης δοσμένης ως (T, w) — η περιεκτικότητα υγρασίας μένει σταθερή */
+function pmvState(T, w, p, clo){
+  return pmv(T, T + MRT_OFFSET_K, V_STILL, Math.min(100, rhOf(T, pvOfW(w,p))), MET, clo);
+}
+
+/* Όριο ζώνης: η θερμοκρασία όπου PMV = target, για δεδομένο w — διχοτόμηση */
+function tAtPmv(target, w, p, clo){
+  let lo = 4, hi = 45;
+  if (pmvState(lo,w,p,clo) > target || pmvState(hi,w,p,clo) < target) return null;
+  for (let i = 0; i < 40; i++){
+    const mid = (lo+hi)/2;
+    if (pmvState(mid,w,p,clo) < target) lo = mid; else hi = mid;
+  }
+  return (lo+hi)/2;
+}
+
+/* Εποχή → ντύσιμο. Παράκαμψη με ?season=winter|summer ή από το developer mode */
+let seasonSel = "auto";
+function activeClo(){
+  if (seasonSel === "winter") return CLO_WINTER;
+  if (seasonSel === "summer") return CLO_SUMMER;
+  return WINTER_MONTHS.indexOf(new Date().getMonth()+1) >= 0 ? CLO_WINTER : CLO_SUMMER;
+}
+
+/* ═══════════ Κατάσταση ═══════════ */
+const q = new URLSearchParams(location.search);
+let locKey = LOCATIONS[q.get("loc")] ? q.get("loc") : DEFAULTS.loc;
+let outside = null, hourly = null, pwsObs = null;
+
+/* Επιλογή πηγής δεδομένων για τον ΕΞΩ αέρα. Το «auto» προτιμά τον τοπικό σταθμό
+   όταν υπάρχει φρέσκια μέτρηση, αλλιώς πέφτει στο μοντέλο — χωρίς να σπάσει τίποτα. */
+function dataSource(){
+  const v = $("src") ? $("src").value : "auto";
+  return ["auto","pws","model","raw"].indexOf(v) >= 0 ? v : "auto";
+}
+
+/* ΟΛΟΙ οι σταθμοί της τοποθεσίας με φρέσκια μέτρηση. Παίρνουμε τη ΔΙΑΜΕΣΟ του σημείου
+   δρόσου: με τρεις σταθμούς ένας χαλασμένος αισθητήρας ψηφίζεται έξω, ενώ ο μέσος όρος
+   θα τον κουβαλούσε. Η διασπορά (max−min) γίνεται μέτρο βεβαιότητας — αντικαθιστά τον
+   παλιό έλεγχο με το METAR του LGAV, που μετρούσε άλλη αέρια μάζα. */
+function pwsSetFor(key){
+  if (!pwsObs || !pwsObs.stations) return null;
+  const list = [];
+  for (const id of (LOCATIONS[key].pws || [])){
+    const r = pwsObs.stations[id];
+    if (!r || typeof r.dewpt !== "number" || !r.obsTime) continue;
+    const ageH = (Date.now()/1000 - r.obsTime)/3600;
+    if (ageH <= PWS_MAX_AGE_H) list.push({id:id, dewpt:r.dewpt, temp:r.temp, ageH:ageH, rec:r});
+  }
+  if (!list.length) return null;
+  const med = a => { const v=a.slice().sort((x,y)=>x-y);
+                     return v.length%2 ? v[(v.length-1)/2] : (v[v.length/2-1]+v[v.length/2])/2; };
+  const tds = list.map(x => x.dewpt).sort((a,b) => a-b);
+  const ts  = list.filter(x => typeof x.temp === "number").map(x => x.temp);
+  return {list:list, n:list.length,
+          dewpt: med(tds),
+          temp:  ts.length ? med(ts) : null,     // null → πέφτουμε στο μοντέλο
+          spread: tds[tds.length-1] - tds[0],
+          ageH: Math.min.apply(null, list.map(x => x.ageH))};
+}
+
+/* Οι σταθμοί ΧΩΡΙΣ το φίλτρο των 2 h. Χρειάζεται για να ξεχωρίζει «δεν φόρτωσε το
+   αρχείο» (→ null) από «ο συλλέκτης πάγωσε» (→ λίστα με παλιές μετρήσεις): δύο εντελώς
+   διαφορετικές αιτίες, που θέλουν διαφορετική ενέργεια. Ποτέ για απόφαση — μόνο για
+   να πούμε τι συμβαίνει. */
+function pwsRawFor(key){
+  if (!pwsObs || !pwsObs.stations) return null;
+  const list = [];
+  for (const id of (LOCATIONS[key].pws || [])){
+    const r = pwsObs.stations[id];
+    if (!r || typeof r.dewpt !== "number" || !r.obsTime) continue;
+    list.push({id:id, dewpt:r.dewpt, ageH:(Date.now()/1000 - r.obsTime)/3600});
+  }
+  return list.length ? list.sort((a,b) => a.ageH - b.ageH) : null;
+}
+
+const $ = id => document.getElementById(id);
+const sel = $("loc"), tin = $("tin"), rhin = $("rhin");
+
+for (const k of Object.keys(LOCATIONS)){
+  const o = document.createElement("option");
+  o.value = k; o.textContent = LOCATIONS[k].name; sel.appendChild(o);
+}
+sel.value = locKey;
+if (["auto","pws","model","raw"].indexOf(q.get("data")) >= 0) $("src").value = q.get("data");
+$("src").addEventListener("change", function(){ syncURL(); refresh(); });
+tin.value  = q.has("t")  ? q.get("t")  : DEFAULTS.t;
+rhin.value = q.has("rh") ? q.get("rh") : DEFAULTS.rh;
+
+/* ── developer mode: toggle στο footer, ή ?dev=1 ── */
+let DEV = q.get("dev") === "1";
+seasonSel = ["winter","summer"].indexOf(q.get("season")) >= 0 ? q.get("season") : "auto";
+$("devSeason").value = seasonSel;
+$("devMode").value   = q.get("src") === "manual" ? "manual" : "live";
+$("devT").value  = q.has("ot")  ? q.get("ot")  : 30;
+$("devTd").value = q.has("otd") ? q.get("otd") : 14;
+$("devP").value  = q.has("op")  ? q.get("op")  : 1005;
+$("devDtd").value = q.has("dtd") ? q.get("dtd") : (LOCATIONS[locKey].dtd || 0);
+
+const devManual = () => DEV && $("devMode").value === "manual";
+
+/* Ενεργή διόρθωση σημείου δρόσου: URL → developer mode → τιμή τοποθεσίας */
+function dewOffset(){
+  if (q.has("dtd") && isFinite(parseFloat(q.get("dtd")))) return parseFloat(q.get("dtd"));
+  if (DEV && isFinite(parseFloat($("devDtd").value))) return parseFloat($("devDtd").value);
+  return LOCATIONS[locKey].dtd || 0;
+}
+function applyDev(){
+  $("dev").className       = DEV ? "card on" : "card";
+  $("devbadge").className  = DEV ? "on" : "";
+  $("devToggle").className = DEV ? "on" : "";
+  $("devToggle").textContent = DEV ? "⚙ developer mode — ενεργό" : "⚙ developer mode";
+}
+applyDev();
+
+function syncURL(){
+  const o = {loc:locKey, t:tin.value, rh:rhin.value};
+  if ($("src").value !== "auto") o.data = $("src").value;
+  if (seasonSel !== "auto") o.season = seasonSel;    // μη χαθεί από bookmark
+  if (DEV){
+    o.dev = "1";
+    o.src = $("devMode").value;
+    if (devManual()){ o.ot = $("devT").value; o.otd = $("devTd").value; o.op = $("devP").value; }
+    if (parseFloat($("devDtd").value) !== (LOCATIONS[locKey].dtd || 0)) o.dtd = $("devDtd").value;
+  }
+  history.replaceState(null,"","?" + new URLSearchParams(o));
+}
+
+/* ═══════════ Δεδομένα ═══════════ */
+async function loadWeather(){
+  if (devManual()){                       // χειροκίνητα δεδομένα — καμία κλήση API
+    const T = parseFloat($("devT").value), Td = parseFloat($("devTd").value);
+    const P = parseFloat($("devP").value);
+    const p = (isFinite(P) ? P : 1013) / 10;
+    outside = {T:T, Td:Td, p:p, RH:Math.min(100, rhOf(T, psat(Td))),
+               time:new Date().toISOString().slice(0,16)};
+    hourly = null;
+    return;
+  }
+  const L = LOCATIONS[locKey];
+  const url = "https://api.open-meteo.com/v1/forecast"
+    + "?latitude="  + L.lat
+    + "&longitude=" + L.lon
+    + "&current=temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure"
+    + "&hourly=temperature_2m,dew_point_2m,surface_pressure"
+    + "&forecast_days=2&timezone=Europe%2FAthens";
+  const r = await fetch(url);
+  if (!r.ok) throw new Error("Open-Meteo HTTP " + r.status);
+  const j = await r.json();
+  const home = Array.isArray(j) ? j[0] : j;
+  /* Διόρθωση σημείου δρόσου: το μοντέλο δεν μετράει, προβλέπει σε κελί ~7 km.
+     Εφαρμόζεται και στην πρόγνωση ωρών, ώστε «περίμενε»/αφυγραντήρας να κρίνονται
+     με τα ίδια νούμερα. */
+  /* ── ποια πηγή δίνει τι ──
+     ΘΕΡΜΟΚΡΑΣΙΑ και ΣΗΜΕΙΟ ΔΡΟΣΟΥ: διάμεσος των σταθμών. Το μοντέλο είναι ΠΡΟΓΝΩΣΗ —
+     όταν υπάρχει μέτρηση, η μέτρηση προηγείται. Ο κίνδυνος ηλιακής θέρμανσης σε
+     κακοτοποθετημένο αισθητήρα καλύπτεται από τη διάμεσο, όπως και στο Td.
+     ΠΙΕΣΗ: πάντα από το μοντέλο. Οι τέσσερις σταθμοί έδωσαν 1036/1020/1013/1004 hPa
+     για την ΙΔΙΑ αέρια μάζα — 32 μονάδες διασπορά, δηλαδή αβαθμονόμητα όργανα. */
+  const src   = dataSource();
+  const stn   = (src === "auto" || src === "pws") ? pwsSetFor(locKey) : null;
+  const modTd = home.current.dew_point_2m;
+  const off   = stn ? 0 : (src === "raw" ? 0 : dewOffset());
+  const modT  = home.current.temperature_2m;
+  let   tUse  = (stn && stn.temp !== null) ? stn.temp : modT;
+  let   tdUse = stn ? stn.dewpt : modTd + off;
+  /* Οι δύο διάμεσοι μπορεί να προέρχονται από διαφορετικούς σταθμούς — φράζουμε το
+     αδύνατο Td > T (θα έδινε RH > 100%). */
+  if (tdUse > tUse) tdUse = tUse;
+  const outside_src = stn ? "pws" : (off ? "model+dtd" : "model");
+  outside = {
+    T: tUse,
+    /* η RH ξαναβγαίνει από το διορθωμένο σημείο δρόσου, αλλιώς ο πίνακας
+       θα έδειχνε δύο ασύμβατα νούμερα στην ίδια γραμμή */
+    RH: (tdUse === modTd && tUse === modT) ? home.current.relative_humidity_2m
+                                           : Math.min(100, rhOf(tUse, psat(tdUse))),
+    Td: tdUse,
+    TdRaw: modTd,
+    dtd: off,
+    src: outside_src,
+    stn: stn,
+    p: home.current.surface_pressure/10,
+    time: home.current.time,
+  };
+  hourly = home.hourly;
+  /* Η πρόγνωση είναι πάντα μοντέλο. Τη μετατοπίζουμε κατά τη ΣΗΜΕΡΙΝΗ απόκλιση
+     (μέτρηση − μοντέλο), ώστε «περίμενε»/αφυγραντήρας να κρίνονται με τα ίδια νούμερα. */
+  const hOffTd = tdUse - modTd, hOffT = tUse - modT;
+  if (hOffTd) hourly.dew_point_2m   = hourly.dew_point_2m.map(function(v){ return v + hOffTd; });
+  if (hOffT)  hourly.temperature_2m = hourly.temperature_2m.map(function(v){ return v + hOffT; });
+}
+
+async function loadPws(){
+  try{
+    /* Το {cache:"no-store"} παρακάμπτει ΜΟΝΟ τον browser. Το GitHub Pages σερβίρει
+       με Cache-Control: max-age=600 μέσω Fastly, οπότε μια φρέσκια σάρωση μπορεί να
+       αργήσει έως 10′ να φανεί. Ο κάδος 5 λεπτών αλλάζει το URL και σπάει το CDN,
+       χωρίς να χτυπάμε το Pages σε κάθε άνοιγμα. */
+    const r = await fetch("./pws.json?t=" + Math.floor(Date.now()/3e5), {cache:"no-store"});
+    if (!r.ok) return null;
+    const j = await r.json();
+    return (j && j.stations) ? j : null;
+  }catch(e){ return null; }
+}
+
+/* Χτίζει την πλήρη κατάσταση σύγκρισης. Χρησιμοποιείται και για την τρέχουσα ώρα
+   και για κάθε ώρα της πρόγνωσης, ώστε να κρίνονται με τον ίδιο ακριβώς κανόνα. */
+function buildState(Tout, Tdout, p, Tin, rhIn, clo, spread){
+  const wOut   = wOf(psat(Tdout), p);
+  const pvIn   = (rhIn/100)*psat(Tin);
+  const wIn    = wOf(pvIn, p);
+  const credit = Tout > Tin ? AIRFLOW_CREDIT_K : 0;
+  return {
+    T:Tout, Tin:Tin, rhIn:rhIn, p:p, clo:clo, credit:credit,
+    wOut:wOut, wIn:wIn, TdIn:dewOf(pvIn),
+    dw:wOut - wIn, dT:Tout - Tin,
+    dh:enthOf(Tout, wOut) - enthOf(Tin, wIn),
+    pmvNow:pmvState(Tin, wIn, p, clo),
+    pmvAfter:pmvState(Tout - credit, wOut, p, clo),
+    /* το ίδιο χωρίς το περιθώριο ροής αέρα — δείχνει αν η ροή είναι που το σώζει */
+    pmvAfterStill:pmvState(Tout, wOut, p, clo),
+    spread:spread
+  };
+}
+const opens = v => v.k.indexOf("ΑΝΟΙΞΕ") === 0;
+
+/* ═══════════ Απόφαση — ιεραρχικά ═══════════ */
+function decide(s){
+  /* Το RH_in < 40% ΔΕΝ κόβει πλέον τη ροή — βγαίνει κανονική ετυμηγορία και
+     από κάτω σύσταση (βλ. #advice στο render). */
+  /* Βεβαιότητα από τη συμφωνία των ΤΟΠΙΚΩΝ σταθμών μεταξύ τους. Αν διαφωνούν πολύ,
+     δεν ξέρουμε τι αέρα έχει έξω — και δεν έχει νόημα να αποφανθούμε. */
+  if (s.spread !== null && s.spread > PWS_SPREAD_MAX)
+    return {k:"ΟΡΙΑΚΟ", c:"warn",
+            note:"Οι τοπικοί σταθμοί διαφωνούν κατά " + n1(s.spread)
+                 + " K στο σημείο δρόσου — δεν είναι ασφαλές συμπέρασμα."};
+
+  /* βέτο άνεσης — συμμετρικό: βγαίνεις εκτός ζώνης ΚΑΙ χειρότερα από τώρα,
+     είτε προς τη ζέστη είτε προς το κρύο. */
+  if (Math.abs(s.pmvAfter) > PMV_LIMIT
+      && (Math.abs(s.pmvAfter) - Math.abs(s.pmvNow)) > PMV_WORSE_MAX){
+    const hot = s.pmvAfter > 0;
+    return {k:"ΜΗΝ ΑΝΟΙΓΕΙΣ — " + (hot ? "ΖΕΣΤΗ" : "ΚΡΥΟ"), c:"bad", sm:true,
+            note:"Βγαίνεις από τη ζώνη άνεσης (PMV " + n2(s.pmvNow) + " → " + n2(s.pmvAfter) + ")."
+                 + (s.dw <= -DW_DEAD
+                     ? " Θυσιάζεις κέρδος " + n1(-s.dw) + " g/kg"
+                       + (hot ? "." : " — για την υγρασία αρκεί σύντομος εξαερισμός 5-10΄.")
+                     : "")};
+  }
+
+  /* ο έξω αέρας πάνω από το απόλυτο όριο ASHRAE, χωρίς κέρδος να το δικαιολογεί */
+  if (s.wOut > W_ASHRAE_MAX && s.dw > -DW_DEAD)
+    return {k:"ΚΛΕΙΣΤΑ", c:"bad",
+            note:"Ο αέρας έξω είναι " + n1(s.wOut) + " g/kg — πάνω από το όριο "
+                 + W_ASHRAE_MAX + " g/kg του ASHRAE 55."};
+
+  if (s.dw <= -DW_DEAD && Math.abs(s.pmvAfter) <= Math.abs(s.pmvNow))
+    return {k:"ΑΝΟΙΞΕ ΔΙΑΠΛΑΤΑ", c:"good"};
+  if (s.dw <= -DW_DEAD)                           return {k:"ΑΝΟΙΞΕ", c:"good"};
+  if (s.dw >=  DW_DEAD)                           return {k:"ΚΛΕΙΣΤΑ", c:"bad"};
+
+  /* Έξω και πιο ζεστά ΚΑΙ πιο υγρά (ή ίσα): δεν υπάρχει τίποτα να κερδίσεις — ούτε
+     υγρασία ούτε δροσιά. Πριν έπεφτε στο «ΟΡΙΑΚΟ, μέσα στο σφάλμα μέτρησης», που ήταν
+     λάθος: το σφάλμα αφορά ΜΟΝΟ την υγρασία, ενώ η θερμοκρασία έλεγε καθαρά «χειρότερα». */
+  if (s.dw >= 0 && s.dT > 0)
+    return {k:"ΚΛΕΙΣΤΑ", c:"bad",
+            note:"Έξω είναι και πιο ζεστά (+" + n1(s.dT) + " K) και πιο υγρά (+"
+                 + n1(s.dw) + " g/kg). Δεν υπάρχει τίποτα να κερδίσεις — μόνο φρέσκος αέρας."};
+
+  return {k:"ΟΡΙΑΚΟ", c:"warn",
+          note:"Η διαφορά είναι μέσα στο σφάλμα μέτρησης (±" + DW_DEAD + " g/kg)."};
+}
+
+/* Τρέχει την ΙΔΙΑ λογική απόφασης πάνω στην πρόγνωση, ώρα-ώρα.
+   Επιστρέφει την πρώτη ώρα που θα άξιζε να ανοίξεις, ή null. */
+function scanForecast(Tin, rhIn, clo, hours){
+  if (!hourly || !hourly.temperature_2m) return null;
+  const now = new Date(outside.time);
+  const i = hourly.time.findIndex(t => new Date(t) > now);
+  if (i < 0) return null;
+  for (let k = 0; k < hours && i+k < hourly.time.length; k++){
+    const j = i + k;
+    const s = buildState(hourly.temperature_2m[j], hourly.dew_point_2m[j],
+                         hourly.surface_pressure[j]/10, Tin, rhIn, clo, null);
+    if (opens(decide(s))) return {time:hourly.time[j], s:s, inHours:k+1};
+  }
+  return null;
+}
+
+/* ═══════════ Γράφημα ═══════════ */
+const CX0=42, CX1=294, CY0=12, CY1=176;   // δεξιά περιθώριο για τις ετικέτες RH
+const T_SPAN_MIN = 15, W_SPAN_MIN = 8;    // ελάχιστο εύρος, να μη χοροπηδά η κλίμακα
+let T_MIN=14, T_MAX=40, W_MIN=0, W_MAX=24;
+let px = T => CX0, py = w => CY1;
+
+/* Βαθμονόμηση αξόνων στα δεδομένα που όντως σχεδιάζονται, με στρογγυλά όρια */
+function setScale(xs, ys){
+  const fit = (v, padLo, padHi, step, spanMin) => {
+    let lo = Math.min.apply(null, v) - padLo, hi = Math.max.apply(null, v) + padHi;
+    if (hi - lo < spanMin){ const c=(lo+hi)/2; lo=c-spanMin/2; hi=c+spanMin/2; }
+    return [Math.floor(lo/step)*step, Math.ceil(hi/step)*step];
+  };
+  const x = fit(xs, 1.5, 1.5, 5, T_SPAN_MIN);
+  const y = fit(ys, 1.5, 1.5, 2, W_SPAN_MIN);
+  T_MIN=x[0]; T_MAX=x[1]; W_MIN=Math.max(0,y[0]); W_MAX=y[1];
+  px = T => CX0 + (T-T_MIN)/(T_MAX-T_MIN)*(CX1-CX0);
+  py = w => CY1 - (w-W_MIN)/(W_MAX-W_MIN)*(CY1-CY0);
+}
+
+function drawChart(st){
+  const p = st.p, S = [];
+
+  /* Ζώνη PMV ±0,5, φραγμένη σε υγρασία: 4,5 g/kg κάτω, 12 g/kg πάνω (55-1992) */
+  /* Θερμοκρασία στην οποία, για δεδομένο w, η RH πέφτει στο όριο — άνω φράγμα του T */
+  const tAtRH = (rh, w) => dewOf(pvOfW(w, p) / (rh/100));
+
+  /* dT: μετατόπιση λόγω ροής αέρα. Το όριο υγρασίας ΔΕΝ μετατοπίζεται μαζί —
+     η κίνηση του αέρα δικαιολογεί ζέστη, όχι ξηρασία. */
+  function ringFor(clo, dT){
+    dT = dT || 0;
+    const left = [], right = [];
+    for (let w = 1; w <= W_ASHRAE_MAX + 0.01; w += 0.25){
+      const a0 = tAtPmv(-PMV_LIMIT, w, p, clo), b0 = tAtPmv(+PMV_LIMIT, w, p, clo);
+      if (a0 === null || b0 === null) continue;
+      const a = a0 + dT;
+      const b = Math.min(b0 + dT, tAtRH(RH_MIN_ZONE, w));  // κόψιμο στο 30% RH
+      if (b <= a) continue;                                // πολύ ξηρά — εκτός ζώνης
+      left.push([a,w]); right.push([b,w]);
+    }
+    return left.length ? left.concat(right.reverse()) : null;
+  }
+  const poly = (ring, dx, fill, stroke, sw, dash, op) =>
+    '<polygon points="' + ring.map(c => n1(px(c[0]+dx)) + "," + n1(py(c[1]))).join(" ")
+    + '" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'"'
+    + (dash ? ' stroke-dasharray="'+dash+'"' : '') + ' opacity="'+op+'"/>';
+
+  const isWinter = st.clo === CLO_WINTER;
+  const C_W = "#58a6ff", C_S = "#2ea043", C_TOL = "#d2a8ff";
+  const C_ACT = isWinter ? C_W : C_S, C_INA = isWinter ? C_S : C_W;
+  const rIna  = ringFor(isWinter ? CLO_SUMMER : CLO_WINTER);
+  const rAct  = ringFor(st.clo);
+  const rTol  = st.credit ? ringFor(st.clo, AIRFLOW_CREDIT_K) : null;
+
+  /* ── βαθμονόμηση αξόνων στα δεδομένα που όντως σχεδιάζονται ── */
+  const xs = [st.Tin, st.T], ys = [st.wIn, st.wOut, W_ASHRAE_MAX];
+  [rIna, rAct, rTol].forEach(function(r){
+    if (r) r.forEach(function(c){ xs.push(c[0]); ys.push(c[1]); });
+  });
+  setScale(xs, ys);
+
+  /* καμπύλες σταθερής RH, με το ποσοστό στο σημείο εξόδου τους */
+  const tops = [];   // ετικέτες καμπυλών που βγαίνουν από την κορυφή — τοποθετούνται μετά
+  for (const rh of [10,20,30,40,50,60,70,80,90,100]){
+    let d = "", last = null, topAt = null;
+    for (let T = T_MIN; T <= T_MAX+0.01; T += 0.5){
+      const w = wOf((rh/100)*psat(T), p);
+      if (w > W_MAX){ topAt = T; break; }        // βγαίνει από πάνω
+      if (w < W_MIN) continue;
+      d += (d ? "L" : "M") + n1(px(T)) + " " + n1(py(w));
+      last = [T, w];
+    }
+    if (!d) continue;
+    const key = rh === RH_MIN_ZONE;              // το 30% οριοθετεί τη ζώνη
+    S.push('<path d="'+d+'" fill="none" stroke="'+(key ? "#6e7681" : "#2a323d")
+         + '" stroke-width="1"/>');
+    const col = key ? "#8b949e" : "#6e7681";
+    if (topAt !== null) tops.push({rh:rh, x:px(topAt), col:col});
+    else if (last)
+      S.push('<text x="'+(CX1+4)+'" y="'+n1(py(last[1])+3)+'" fill="'+col
+           + '" font-size="8.5" text-anchor="start">'+rh+'%</text>');
+  }
+
+  /* Ετικέτες κορυφής: η υψηλότερη RH πρώτη και πιο ψηλά· όσες κολλάνε κατεβαίνουν
+     σκαλοπάτι, ώστε να φαίνονται όλες αντί να πετιούνται. */
+  tops.reverse();
+  let prevX = -Infinity, row = 0;
+  for (const t of tops){
+    row = (t.x - prevX < 26) ? row + 1 : 0;
+    if (row > 2) row = 0;
+    S.push('<text x="'+n1(t.x)+'" y="'+(CY0 + 8 + row*10)+'" fill="'+t.col
+         + '" font-size="8.5" text-anchor="middle">'+t.rh+'%</text>');
+    prevX = t.x;
+  }
+
+  /* ανενεργή εποχή: το δικό της χρώμα, αχνό — φαίνεται, δεν διεκδικεί */
+  if (rIna) S.push(poly(rIna, 0, C_INA+"12", C_INA, 1, null, .45));
+  /* περιθώριο θερμοκρασίας: η ενεργή ζώνη μετατοπισμένη */
+  if (rTol) S.push(poly(rTol, 0, "none", C_TOL, 1.3, "4 3", .95));
+  /* ενεργή εποχή */
+  if (rAct) S.push(poly(rAct, 0, C_ACT+"2e", C_ACT, 1.6, null, 1));
+
+  /* υπόμνημα κάτω από το γράφημα */
+  const item = (col, dash, txt, op) =>
+    '<span><i style="border-top-color:'+col+';opacity:'+op
+    + (dash ? ';border-top-style:dashed' : '') + '"></i>'+txt+'</span>';
+  const nameOf = w => w ? "Χειμώνας " + n1(CLO_WINTER) + " clo" : "Καλοκαίρι " + n1(CLO_SUMMER) + " clo";
+  $("legend").innerHTML =
+      item(C_ACT, false, "<b style='color:"+C_ACT+"'>"+nameOf(isWinter)+"</b> — ισχύει τώρα", 1)
+    + item(C_INA, false, nameOf(!isWinter) + " — δεν ισχύει", .55)
+    + (st.credit ? item(C_TOL, true, "περιθώριο θερμοκρασίας λόγω ροής αέρα +"
+        + n1(AIRFLOW_CREDIT_K) + " °C", 1) : "")
+    + item("#bb8009", true, "όριο υγρασίας ASHRAE " + n1(W_ASHRAE_MAX) + " g/kg", 1);
+
+  /* όριο ASHRAE 12 g/kg */
+  S.push('<line x1="'+CX0+'" y1="'+n1(py(W_ASHRAE_MAX))+'" x2="'+CX1+'" y2="'+n1(py(W_ASHRAE_MAX))
+       + '" stroke="#bb8009" stroke-width="1" stroke-dasharray="4 3"/>');
+
+  /* άξονες */
+  S.push('<line x1="'+CX0+'" y1="'+CY1+'" x2="'+CX1+'" y2="'+CY1+'" stroke="#3d4753"/>');
+  S.push('<line x1="'+CX0+'" y1="'+CY0+'" x2="'+CX0+'" y2="'+CY1+'" stroke="#3d4753"/>');
+  for (let T = T_MIN; T <= T_MAX+0.01; T += 5)
+    S.push('<text x="'+n1(px(T))+'" y="'+(CY1+13)+'" fill="#8b949e" font-size="9" text-anchor="middle">'+T+'</text>');
+  const wStep = (W_MAX - W_MIN) > 14 ? 4 : 2;
+  for (let w = W_MIN; w <= W_MAX+0.01; w += wStep)
+    S.push('<text x="'+(CX0-5)+'" y="'+n1(py(w)+3)+'" fill="#8b949e" font-size="9" text-anchor="end">'+w+'</text>');
+  S.push('<text x="'+n1((CX0+CX1)/2)+'" y="'+(CY1+28)+'" fill="#8b949e" font-size="9" text-anchor="middle">θερμοκρασία ξηρού βολβού °C</text>');
+  S.push('<text x="11" y="'+n1((CY0+CY1)/2)+'" fill="#8b949e" font-size="9" text-anchor="middle" transform="rotate(-90 11 '+n1((CY0+CY1)/2)+')">w  g/kg</text>');
+
+  /* βέλος ΤΩΡΑ → ΜΕΤΑ */
+  const x1=px(st.Tin), y1=py(st.wIn), x2=px(st.T), y2=py(st.wOut);
+  S.push('<defs><marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">'
+       + '<path d="M0 0 L7 3 L0 6 z" fill="#8b949e"/></marker></defs>');
+  S.push('<line x1="'+n1(x1)+'" y1="'+n1(y1)+'" x2="'+n1(x2)+'" y2="'+n1(y2)
+       + '" stroke="#8b949e" stroke-width="1.2" stroke-dasharray="3 2" marker-end="url(#ar)"/>');
+  S.push('<circle cx="'+n1(x1)+'" cy="'+n1(y1)+'" r="4.5" fill="#e6edf3" stroke="#0d1117" stroke-width="1.5"/>');
+  S.push('<text x="'+n1(x1)+'" y="'+n1(y1-9)+'" fill="#e6edf3" font-size="9" text-anchor="middle">ΜΕΣΑ</text>');
+  S.push('<circle cx="'+n1(x2)+'" cy="'+n1(y2)+'" r="5" fill="#f0883e" stroke="#0d1117" stroke-width="1.5"/>');
+  S.push('<text x="'+n1(x2)+'" y="'+n1(y2+15)+'" fill="#f0883e" font-size="9" font-weight="700" text-anchor="middle">ΕΞΩ</text>');
+
+  $("chart").innerHTML = S.join("");
+  $("cap").innerHTML =
+      "Οι δύο κουκκίδες είναι <b>δύο αέρηδες</b>: αυτός που έχεις μέσα και αυτός που θα βάλεις. "
+    + "Το βέλος δείχνει προς τα πού πάει ο χώρος αν ανοίξεις — <b>όχι πού καταλήγει</b>: "
+    + "οι τοίχοι και τα έπιπλα κρατούν τη θερμοκρασία τους και συνεχίζουν να δίνουν ή να παίρνουν ζέστη."
+    + (st.credit
+        ? " <b style='color:#d2a8ff'>Το περιθώριο θερμοκρασίας λόγω ροής αέρα</b> ("
+          + n1(AIRFLOW_CREDIT_K) + " °C) υπάρχει επειδή ο κινούμενος αέρας δροσίζει: με ανοιχτά "
+          + "παράθυρα αντέχεις πιο ζεστά απ' ό,τι με ακίνητο αέρα. <b>Το ASHRAE 55 το προβλέπει</b> "
+          + "— πάνω από 0,20 m/s ορίζει ξεχωριστή μέθοδο (Elevated Air Speed, μέσω SET). "
+          + "Δική μας είναι μόνο η απλοποίηση σε σταθερούς " + n1(AIRFLOW_CREDIT_K)
+          + " °C, αφού δεν ξέρουμε την πραγματική ταχύτητα αέρα στο δωμάτιο."
+        : " Έξω είναι πιο ψυχρά, οπότε δεν μπαίνει περιθώριο ροής αέρα — εκεί το ρεύμα δεν δροσίζει, κρυώνει.");
+}
+
+/* ═══════════ Απόδοση ═══════════ */
+function render(){
+  if (!outside) return;
+  const msgsPre = [];   // συστάσεις που προκύπτουν πριν την ετυμηγορία (πηγή δεδομένων)
+  const L = LOCATIONS[locKey], p = outside.p;
+  const wOut = wOf(psat(outside.Td), p);
+
+  $("out").children[1].textContent = n1(outside.T);
+  $("out").children[2].textContent = Math.round(outside.RH);
+  $("out").children[3].textContent = n1(outside.Td);
+  $("out").children[4].textContent = n1(wOut);
+
+  $("stamp").textContent = "Δεδομένα "
+    + new Date(outside.time).toLocaleTimeString("el-GR",{hour:"2-digit",minute:"2-digit"})
+    + " · " + n1(p*10) + " hPa · " + L.vol + " m³"
+    + (outside.src === "pws"
+        ? " · μετρήσεις από " + outside.stn.n + " σταθμούς (πριν "
+          + Math.round(outside.stn.ageH*60) + "′)"
+        : outside.dtd
+            ? " · μοντέλο, διόρθωση δρόσου " + (outside.dtd>0?"+":"−") + n1(Math.abs(outside.dtd)) + " K"
+            : " · μοντέλο, χωρίς διόρθωση");
+
+  /* Περιμέναμε μέτρηση και δεν την πήραμε — πες ΓΙΑΤΙ. «Δεν φόρτωσε το αρχείο» είναι
+     πρόβλημα δικτύου· «πάγωσαν οι σταθμοί» σημαίνει ότι ο συλλέκτης δεν τρέχει και θέλει
+     χειροκίνητη σάρωση. Το παλιό μήνυμα έλεγε «δεν υπάρχει πρόσβαση» και στις δύο —
+     λάθος: η πρόσβαση ήταν μια χαρά, τα δεδομένα ήταν μπαγιάτικα. Όταν ο χρήστης διαλέξει
+     ο ίδιος μοντέλο από το developer mode, δεν έχει νόημα να του το λέμε. */
+  const wanted = dataSource() === "auto" || dataSource() === "pws";
+  if (outside.src !== "pws" && wanted){
+    const fromModel = "Η απόφαση βγαίνει από <b>πρόγνωση μοντέλου</b>"
+      + (outside.dtd ? " με διόρθωση " + n1(outside.dtd) + " K" : "") + ", όχι από μέτρηση.";
+    const raw = pwsRawFor(locKey), ageH = raw ? raw[0].ageH : null;
+    msgsPre.push(["y", ageH === null
+      ? "<b>Δεν φόρτωσε το αρχείο μετρήσεων</b> — καμία ένδειξη από τους τοπικούς σταθμούς. "
+        + fromModel
+      : "<b>Οι τοπικοί σταθμοί έχουν παγώσει</b> — η νεότερη μέτρηση είναι " + n1(ageH)
+        + " ώρες παλιά, όριο " + PWS_MAX_AGE_H + " h. Ο συλλέκτης δεν τρέχει: χρειάζεται "
+        + "χειροκίνητη σάρωση. " + fromModel]);
+  }
+
+  const Tin = parseFloat(tin.value), rhIn = parseFloat(rhin.value);
+  if (!(isFinite(Tin) && isFinite(rhIn) && rhIn > 0 && rhIn <= 100)){
+    $("tdin").textContent = "–"; $("win").textContent = "–";
+    $("label").textContent = "…"; $("label").className = "";
+    $("note").textContent = "Συμπλήρωσε θερμοκρασία και υγρασία μέσα.";
+    $("why").textContent = ""; $("water").textContent = ""; $("advice").innerHTML = "";
+    $("verdict").className = "idle"; $("chart").innerHTML = ""; $("cap").textContent = "";
+    return;
+  }
+
+  const clo  = activeClo();
+  const spread = (outside.stn && outside.stn.n > 1) ? outside.stn.spread : null;
+  const st   = buildState(outside.T, outside.Td, p, Tin, rhIn, clo, spread);
+  st.fromPws = outside.src === "pws";
+  const dw = st.dw, dT = st.dT, dh = st.dh, wIn = st.wIn;
+  const pmvNow = st.pmvNow, pmvAfter = st.pmvAfter;
+
+  $("tdin").textContent = n1(st.TdIn);
+  $("win").textContent  = n1(wIn);
+
+  const v = decide(st);
+
+  $("verdict").className = v.c;
+  $("label").textContent = v.k;
+  $("label").className   = v.sm ? "sm" : "";
+  $("note").textContent  = v.note || (dw < 0
+    ? "Ο αέρας έξω είναι ξηρότερος κατά " + n1(-dw) + " g/kg."
+    : "Ο αέρας έξω είναι υγρότερος κατά " + n1(dw) + " g/kg.");
+  $("why").textContent = "Δw " + (dw>=0?"+":"−") + n1(Math.abs(dw)) + " g/kg"
+    + " · ΔT " + (dT>=0?"+":"−") + n1(Math.abs(dT)) + " K"
+    + " · Δh " + (dh>=0?"+":"−") + n1(Math.abs(dh)) + " kJ/kg"
+    + " · PMV " + n2(pmvNow) + " → " + n2(pmvAfter);
+  $("water").textContent = "Έως " + n1(RHO_AIR*(FILL_FACTOR*L.vol)*Math.abs(dw)/1000)
+    + " L νερού — όσο κουβαλάει ο ίδιος ο αέρας του σπιτιού ("
+    + Math.round(FILL_FACTOR*L.vol) + " m³ ωφέλιμα) αν αλλάξει ολόκληρος μία φορά";
+
+  /* Συστάσεις — συνοδεύουν την ετυμηγορία, δεν την ακυρώνουν */
+  const msgs = msgsPre.slice();
+  const nowOpens = opens(v);
+  /* ίδια λογική απόφασης πάνω στην πρόγνωση: πότε θα άξιζε να ανοίξεις; */
+  const later = nowOpens ? null : scanForecast(Tin, rhIn, clo, DEHUM_HORIZON_H);
+
+  /* Άνοιξε μόνο χάρη στη ροή αέρα; Πες το — ο χώρος δεν θα είναι «άνετος» με τα χαρτιά. */
+  if (nowOpens && st.credit && st.pmvAfterStill > PMV_LIMIT)
+    msgs.push(["v", "<b>Ο αέρας έξω είναι εκτός ζώνης άνεσης</b> — πιο ζεστός απ' όσο ορίζει το "
+      + "πρότυπο για ακίνητο αέρα (PMV " + n2(st.pmvAfterStill) + ", όριο " + PMV_LIMIT + "). "
+      + "<b>Το προτείνουμε παρ' όλα αυτά</b>, γιατί κερδίζεις " + n1(-st.dw)
+      + " g/kg υγρασίας και επειδή η ροή του αέρα αντισταθμίζει μέρος της ζέστης "
+      + "(ισοδύναμο PMV " + n2(st.pmvAfter) + " με το περιθώριο των " + n1(AIRFLOW_CREDIT_K) + " °C). "
+      + "<b>Θέλει διαμπερές ρεύμα</b> — με ένα παράθυρο μόνο το περιθώριο δεν ισχύει."]);
+
+  if (later)
+    msgs.push(["w", (later.inHours <= WAIT_HORIZON_H
+        ? "<b>Καλύτερα περίμενε.</b> Στις "
+        : "<b>Αργότερα θα αξίζει</b> — σε " + later.inHours + " ώρες, στις ")
+      + later.time.slice(11,16) + ": έξω " + n1(later.s.T) + " °C και w "
+      + n1(later.s.wOut) + " g/kg, αντί για " + n1(st.T) + " °C και "
+      + n1(st.wOut) + " g/kg τώρα."]);
+
+  /* Ο εξαερισμός δεν είναι πάντα η λύση. Αν είσαι εκτός ζώνης άνεσης, το άνοιγμα δεν
+     βοηθά, ΚΑΙ δεν αξίζει να περιμένεις, πες τι ΟΝΤΩΣ χρειάζεται — αντί για ένα
+     μουτζουρωμένο «οριακό». Μπορεί να χρειάζονται και τα δύο ταυτόχρονα. */
+  const hot   = st.pmvNow >  PMV_LIMIT;
+  const cold  = st.pmvNow < -PMV_LIMIT;
+  const humid = rhIn > DEHUM_RH_IN || wIn > DEHUM_W_IN;
+
+  if (!nowOpens && !later && (hot || cold || humid)){
+    let txt, needs;
+    if (hot && humid)
+      needs = "<b>κλιματιστικό σε ψύξη</b> — αφαιρεί ταυτόχρονα ζέστη και υγρασία. "
+            + "Σκέτος αφυγραντήρας θα κατέβαζε την υγρασία αλλά θα πρόσθετε θερμότητα.";
+    else if (hot)
+      needs = "<b>ψύξη ή ανεμιστήρας</b>. Η υγρασία σου είναι χαμηλή ("
+            + Math.round(rhIn) + "% RH, " + n1(wIn) + " g/kg) — αφυγραντήρας εδώ μόνο "
+            + "θα ζέσταινε κι άλλο.";
+    else if (humid && cold)
+      needs = "<b>θέρμανση και αφύγρανση</b> — το κρύο και η υγρασία μαζί είναι το χειρότερο "
+            + "για μούχλα σε ψυχρές επιφάνειες.";
+    else if (humid)
+      needs = "<b>αφυγραντήρας</b> (" + Math.round(rhIn) + "% RH, " + n1(wIn) + " g/kg).";
+    else
+      needs = "<b>θέρμανση</b>· το άνοιγμα μόνο σύντομα, για φρέσκο αέρα.";
+
+    txt = "<b>Ο εξαερισμός δεν λύνει αυτό.</b> "
+        + (hot ? "Είσαι εκτός ζώνης άνεσης από ζέστη" :
+           cold ? "Είσαι εκτός ζώνης άνεσης από κρύο" : "Η υγρασία μέσα είναι υψηλή")
+        + (humid && (hot || cold) ? " και από υγρασία" : "")
+        + ", και ο έξω αέρας δεν βοηθά. Χρειάζεται " + needs;
+    msgs.push(["d", txt]);
+  }
+
+  if (rhIn < RH_IN_MIN)
+    msgs.push(["y", "<b>Σύσταση:</b> η υγρασία μέσα είναι ήδη " + Math.round(rhIn)
+      + "%, κάτω από το " + RH_IN_MIN + "% — δεν είναι ανάγκη να ανοίξεις για υγρασία. "
+      + "Παρατεταμένος εξαερισμός θα την κατεβάσει κι άλλο, που δεν συμφέρει σε ξύλα "
+      + "και βλεννογόνους. Άνοιξε μόνο για φρέσκο αέρα."]);
+
+  $("advice").innerHTML = msgs.map(m => '<div class="'+m[0]+'">'+m[1]+'</div>').join("");
+
+  /* Ποιοι σταθμοί μίλησαν και πόσο συμφωνούν */
+  const el = $("metar");
+  if (outside.stn){
+    const S = outside.stn;
+    el.className = S.n > 1 && S.spread > PWS_SPREAD_MAX ? "off" : "ok";
+    el.innerHTML = "Σταθμοί: "
+      + S.list.map(function(x){ return "<b>" + x.id + "</b> " + n1(x.dewpt) + " °C"; }).join(" · ")
+      + (S.n > 1
+          ? " · διάμεσος <b>" + n1(S.dewpt) + " °C</b>, διασπορά " + n1(S.spread) + " K"
+          : " · <b>μόνος σταθμός</b>, χωρίς δεύτερη γνώμη")
+      + " · πριν " + Math.round(S.ageH*60) + "′";
+  } else {
+    /* Το «γιατί πέσαμε στο μοντέλο» το λέει ήδη η κίτρινη προειδοποίηση. Εδώ λέμε ό,τι
+       εκείνη δεν ξέρει: ΠΟΙΟΣ σταθμός σώπασε και από πότε — αυτό διαγιγνώσκει αν έπεσε
+       ο συλλέκτης (σώπασαν όλοι μαζί) ή ένας σταθμός (έμεινε μόνο αυτός πίσω). */
+    const raw = pwsRawFor(locKey);
+    el.className = "off";
+    el.innerHTML = raw
+      ? "Σταθμοί εκτός: " + raw.map(function(x){
+          return "<b>" + x.id + "</b> πριν " + (x.ageH < 24 ? n1(x.ageH) + " h" : Math.round(x.ageH/24) + " ημ.");
+        }).join(" · ") + " — όριο " + PWS_MAX_AGE_H + " h"
+      : "Τοπικοί σταθμοί: <b>δεν φόρτωσε το αρχείο μετρήσεων</b>.";
+  }
+
+  drawChart(st);
+  renderHours(wOut);
+}
+
+function renderHours(wNow){
+  const box = $("hours"); box.innerHTML = "";
+  if (!hourly) return;
+  const now = new Date(outside.time);
+  const i = hourly.time.findIndex(t => new Date(t) > now);
+  if (i < 0) return;
+  for (let k = 0; k < 3 && i+k < hourly.time.length; k++){
+    const j = i+k;
+    const pw = wOf(psat(hourly.dew_point_2m[j]), hourly.surface_pressure[j]/10);
+    const d = pw - wNow;
+    const cls = d <= -0.3 ? "dn" : d >= 0.3 ? "up" : "eq";
+    const txt = d <= -0.3 ? "βελτιώνεται" : d >= 0.3 ? "χειροτερεύει" : "σταθερό";
+    const el = document.createElement("div");
+    el.innerHTML = '<div class="h">' + hourly.time[j].slice(11,16) + '</div>'
+                 + '<div class="v">' + n1(pw) + '</div>'
+                 + '<div class="t ' + cls + '">' + txt + '</div>';
+    box.appendChild(el);
+  }
+}
+
+/* ═══════════ Εκκίνηση ═══════════ */
+async function refresh(){
+  try{
+    $("err").style.display = "none";
+    pwsObs = await loadPws();
+    await loadWeather();
+    render();
+  }catch(e){
+    $("err").style.display = "block";
+    $("err").textContent = "Δεν φορτώθηκαν δεδομένα καιρού: " + e.message;
+    $("stamp").textContent = "—";
+  }
+}
+
+sel.addEventListener("change", function(){ locKey = sel.value; syncURL(); refresh(); });
+tin.addEventListener("input",  function(){ syncURL(); render(); });
+rhin.addEventListener("input", function(){ syncURL(); render(); });
+document.addEventListener("visibilitychange", function(){
+  if (!document.hidden && !devManual()) refresh();
+});
+
+$("devToggle").addEventListener("click", function(){
+  DEV = !DEV;
+  if (!DEV) seasonSel = "auto";        // έξοδος από dev → όλα πίσω στο αυτόματο
+  applyDev(); syncURL(); refresh();
+});
+$("devMode").addEventListener("change", function(){ syncURL(); refresh(); });
+$("devSeason").addEventListener("change", function(){
+  seasonSel = $("devSeason").value; syncURL(); render();
+});
+["devT","devTd","devP"].forEach(function(id){
+  $(id).addEventListener("input", function(){ if (devManual()){ syncURL(); refresh(); } });
+});
+$("devDtd").addEventListener("input", function(){ syncURL(); refresh(); });
+
+syncURL();
+refresh();
+</script>
+</body>
+</html>
