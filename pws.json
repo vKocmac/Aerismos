@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-02T05:01:25.645Z",
+ "fetched": "2026-09-02T09:32:04.086Z",
  "stations": {
-  "IARGYR7": {
-   "obsTime": 1788325267,
-   "temp": 28.5,
-   "dewpt": 13.3,
-   "humidity": 39,
-   "pressure": 1020
-  },
-  "IARGYR10": {
-   "obsTime": 1788325260,
-   "temp": 28.5,
-   "dewpt": 13.1,
-   "humidity": 39,
-   "pressure": 1020.7
-  },
-  "IALIMO14": {
-   "obsTime": 1788325245,
-   "temp": 30.1,
-   "dewpt": 14.6,
-   "humidity": 39,
-   "pressure": 1004.4
-  },
-  "IARGYR9": {
-   "obsTime": 1788325222,
-   "temp": 29.2,
-   "dewpt": 13.3,
-   "humidity": 38,
-   "pressure": 1036.2
-  },
   "IALIMO16": {
-   "obsTime": 1788325265,
-   "temp": 29.1,
-   "dewpt": 13.7,
-   "humidity": 39,
+   "obsTime": 1788341513,
+   "temp": 33.4,
+   "dewpt": 10.2,
+   "humidity": 24,
    "pressure": 1015.6
   },
+  "IARGYR7": {
+   "obsTime": 1788341505,
+   "temp": 33,
+   "dewpt": 9.9,
+   "humidity": 24,
+   "pressure": 1020
+  },
+  "IALIMO14": {
+   "obsTime": 1788341502,
+   "temp": 34.9,
+   "dewpt": 12.6,
+   "humidity": 26,
+   "pressure": 1004.7
+  },
+  "IARGYR10": {
+   "obsTime": 1788341505,
+   "temp": 35,
+   "dewpt": 10,
+   "humidity": 22,
+   "pressure": 1020.7
+  },
+  "IARGYR9": {
+   "obsTime": 1788341497,
+   "temp": 35.8,
+   "dewpt": 10.8,
+   "humidity": 22,
+   "pressure": 1036.2
+  },
   "IMARAT24": {
-   "obsTime": 1788325279,
-   "temp": 28.5,
-   "dewpt": 14.8,
-   "humidity": 43,
+   "obsTime": 1788341514,
+   "temp": 34.3,
+   "dewpt": 13.9,
+   "humidity": 29,
    "pressure": 1013.9
   },
-  "IILIOU4": {
-   "obsTime": 1788325265,
-   "temp": 28.8,
-   "dewpt": 12.3,
-   "humidity": 36,
-   "pressure": 1010.2
-  },
   "IMARAT16": {
-   "obsTime": 1788325200,
-   "temp": 28.1,
-   "dewpt": 15.7,
-   "humidity": 47,
-   "pressure": 1015.2
+   "obsTime": 1788341400,
+   "temp": 33.6,
+   "dewpt": 14.6,
+   "humidity": 32,
+   "pressure": 1015.9
   },
   "IMARAT19": {
-   "obsTime": 1788325278,
-   "temp": 28.4,
-   "dewpt": 16.3,
-   "humidity": 48,
+   "obsTime": 1788341514,
+   "temp": 34.2,
+   "dewpt": 12.1,
+   "humidity": 26,
    "pressure": 1015.9
+  },
+  "IILIOU4": {
+   "obsTime": 1788341505,
+   "temp": 34.9,
+   "dewpt": 9.4,
+   "humidity": 21,
+   "pressure": 1010.2
   }
  }
 }
