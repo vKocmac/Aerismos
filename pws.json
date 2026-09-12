@@ -1,54 +1,61 @@
 {
- "fetched": "2026-09-12T16:31:43.808Z",
+ "fetched": "2026-09-12T16:35:21.069Z",
  "stations": {
+  "IARGYR7": {
+   "obsTime": 1789230908,
+   "temp": 26.4,
+   "dewpt": 19.1,
+   "humidity": 64,
+   "pressure": 1019
+  },
   "IARGYR10": {
-   "obsTime": 1789230683,
-   "temp": 27.2,
-   "dewpt": 19.2,
+   "obsTime": 1789230882,
+   "temp": 27,
+   "dewpt": 19.1,
    "humidity": 62,
    "pressure": 1020
   },
+  "IARGYR9": {
+   "obsTime": 1789230907,
+   "temp": 27.2,
+   "dewpt": 19.7,
+   "humidity": 64,
+   "pressure": 1035.2
+  },
   "IALIMO14": {
-   "obsTime": 1789230640,
-   "temp": 26.7,
-   "dewpt": 20.5,
+   "obsTime": 1789230817,
+   "temp": 26.6,
+   "dewpt": 20.4,
    "humidity": 69,
    "pressure": 1003.7
   },
+  "IALIMO16": {
+   "obsTime": 1789230907,
+   "temp": 26.8,
+   "dewpt": 20.4,
+   "humidity": 68,
+   "pressure": 1014.6
+  },
+  "IILIOU4": {
+   "obsTime": 1789230910,
+   "temp": 26.9,
+   "dewpt": 18,
+   "humidity": 58,
+   "pressure": 1009.5
+  },
   "IMARAT24": {
-   "obsTime": 1789230690,
+   "obsTime": 1789230906,
    "temp": 26.3,
    "dewpt": 22.5,
    "humidity": 80,
    "pressure": 1012.9
   },
-  "IARGYR7": {
-   "obsTime": 1789230679,
-   "temp": 26.5,
-   "dewpt": 19.5,
-   "humidity": 65,
-   "pressure": 1019
-  },
-  "IILIOU4": {
-   "obsTime": 1789230691,
-   "temp": 26.8,
-   "dewpt": 19.2,
-   "humidity": 63,
-   "pressure": 1009.5
-  },
-  "IARGYR9": {
-   "obsTime": 1789230652,
-   "temp": 27.2,
-   "dewpt": 20,
-   "humidity": 65,
-   "pressure": 1035.2
-  },
-  "IALIMO16": {
-   "obsTime": 1789230690,
-   "temp": 26.8,
-   "dewpt": 20.8,
-   "humidity": 70,
-   "pressure": 1014.6
+  "IMARAT19": {
+   "obsTime": 1789230907,
+   "temp": 26,
+   "dewpt": 22.1,
+   "humidity": 79,
+   "pressure": 1014.9
   },
   "IMARAT16": {
    "obsTime": 1789230600,
@@ -56,13 +63,6 @@
    "dewpt": -33.9,
    "humidity": 1,
    "pressure": 1013.9
-  },
-  "IMARAT19": {
-   "obsTime": 1789230691,
-   "temp": 26.1,
-   "dewpt": 22.2,
-   "humidity": 79,
-   "pressure": 1014.9
   }
  }
 }
