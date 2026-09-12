@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-12T20:16:42.667Z",
+ "fetched": "2026-09-12T20:31:29.420Z",
  "stations": {
-  "IARGYR7": {
-   "obsTime": 1789244191,
-   "temp": 27.9,
-   "dewpt": 14.5,
-   "humidity": 44,
-   "pressure": 1019.3
-  },
-  "IALIMO14": {
-   "obsTime": 1789244136,
-   "temp": 27.6,
-   "dewpt": 14.6,
-   "humidity": 45,
-   "pressure": 1003.4
-  },
-  "IARGYR10": {
-   "obsTime": 1789244168,
-   "temp": 28,
-   "dewpt": 14.2,
-   "humidity": 43,
-   "pressure": 1020
-  },
   "IALIMO16": {
-   "obsTime": 1789244187,
-   "temp": 27.6,
-   "dewpt": 14.8,
+   "obsTime": 1789245075,
+   "temp": 27.7,
+   "dewpt": 14.9,
    "humidity": 46,
    "pressure": 1014.6
   },
   "IARGYR9": {
-   "obsTime": 1789244120,
-   "temp": 27.8,
-   "dewpt": 15.4,
-   "humidity": 47,
+   "obsTime": 1789245060,
+   "temp": 27.5,
+   "dewpt": 14.4,
+   "humidity": 45,
    "pressure": 1034.9
   },
+  "IALIMO14": {
+   "obsTime": 1789245036,
+   "temp": 27.8,
+   "dewpt": 14.8,
+   "humidity": 45,
+   "pressure": 1003.4
+  },
+  "IARGYR7": {
+   "obsTime": 1789245080,
+   "temp": 27.8,
+   "dewpt": 13.7,
+   "humidity": 42,
+   "pressure": 1019
+  },
+  "IARGYR10": {
+   "obsTime": 1789245018,
+   "temp": 27.8,
+   "dewpt": 14,
+   "humidity": 43,
+   "pressure": 1020
+  },
+  "IILIOU4": {
+   "obsTime": 1789245069,
+   "temp": 27.7,
+   "dewpt": 13.3,
+   "humidity": 41,
+   "pressure": 1009.5
+  },
+  "IMARAT24": {
+   "obsTime": 1789245078,
+   "temp": 22.3,
+   "dewpt": 20.1,
+   "humidity": 87,
+   "pressure": 1011.9
+  },
   "IMARAT16": {
-   "obsTime": 1789243800,
-   "temp": 22.8,
+   "obsTime": 1789245000,
+   "temp": 22.9,
    "dewpt": -36.1,
    "humidity": 1,
    "pressure": 1014.2
   },
   "IMARAT19": {
-   "obsTime": 1789244191,
-   "temp": 23.7,
-   "dewpt": 19.2,
-   "humidity": 76,
+   "obsTime": 1789245079,
+   "temp": 23.4,
+   "dewpt": 19.5,
+   "humidity": 79,
    "pressure": 1014.9
-  },
-  "IMARAT24": {
-   "obsTime": 1789244190,
-   "temp": 22.3,
-   "dewpt": 20.2,
-   "humidity": 88,
-   "pressure": 1012.9
-  },
-  "IILIOU4": {
-   "obsTime": 1789244195,
-   "temp": 27.7,
-   "dewpt": 14,
-   "humidity": 43,
-   "pressure": 1009.1
   }
  }
 }
