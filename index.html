@@ -561,13 +561,19 @@ function buildState(Tout, Tdout, p, Tin, rhIn, clo, spread){
   const wOut   = wOf(psat(Tdout), p);
   const pvIn   = (rhIn/100)*psat(Tin);
   const wIn    = wOf(pvIn, p);
-  const credit = Tout > Tin ? AIRFLOW_CREDIT_K : 0;
+  const pmvNow = pmvState(Tin, wIn, p, clo);
+  /* Το περιθώριο ροής αέρα δίνεται ΜΟΝΟ σε όποιον ζεσταίνεται. Πριν εφαρμοζόταν σε κάθε
+     Tout > Tin, οπότε σε κρύο χώρο λειτουργούσε ως ΠΟΙΝΗ: με 21 °C μέσα και 23 °C έξω
+     έβγαζε «ΜΗΝ ΑΝΟΙΓΕΙΣ — ΚΡΥΟ», ενώ έξω ήταν πιο ζεστά. Το ASHRAE 55 δίνει την
+     ανοχή αυξημένης ταχύτητας αέρα για ΘΕΡΜΕΣ συνθήκες· σε δροσερές την περιορίζει
+     λόγω κινδύνου ρεύματος. */
+  const credit = (Tout > Tin && pmvNow > 0) ? AIRFLOW_CREDIT_K : 0;
   return {
     T:Tout, Tin:Tin, rhIn:rhIn, p:p, clo:clo, credit:credit,
     wOut:wOut, wIn:wIn, TdIn:dewOf(pvIn),
     dw:wOut - wIn, dT:Tout - Tin,
     dh:enthOf(Tout, wOut) - enthOf(Tin, wIn),
-    pmvNow:pmvState(Tin, wIn, p, clo),
+    pmvNow:pmvNow,
     pmvAfter:pmvState(Tout - credit, wOut, p, clo),
     /* το ίδιο χωρίς το περιθώριο ροής αέρα — δείχνει αν η ροή είναι που το σώζει */
     pmvAfterStill:pmvState(Tout, wOut, p, clo),
@@ -587,8 +593,28 @@ function decide(s){
             note:"Οι τοπικοί σταθμοί διαφωνούν κατά " + n1(s.spread)
                  + " K στο σημείο δρόσου — δεν είναι ασφαλές συμπέρασμα."};
 
+  /* ΥΠΕΡΒΑΣΗ: είσαι ΕΚΤΟΣ ζώνης από τη μία πλευρά και ο έξω αέρας σε πάει στην άλλη.
+     Εδώ το βέτο ήταν σοβαρό λάθος — απαγόρευε τον νυχτερινό δροσισμό, την πιο χρήσιμη
+     κίνηση του καλοκαιριού: 29 °C μέσα, 18 °C και ξηρά έξω ⇒ «ΜΗΝ ΑΝΟΙΓΕΙΣ — ΚΡΥΟ».
+     Το λάθος γεννιέται επειδή το pmvAfter υπολογίζεται σαν να γίνεται ο χώρος ΑΚΑΡΙΑΙΑ
+     18 °C. Δεν γίνεται: οι τοίχοι κρατούν τη θερμοκρασία τους, κι εσύ κλείνεις τα
+     παράθυρα όταν φτάσει. Άρα η σωστή απάντηση δεν είναι «όχι», είναι «για λίγο».
+     Απαιτείται Δw <= 0: αν ο έξω αέρας φέρνει και υγρασία, δεν τον θέλουμε ούτε λίγο. */
+  const crosses = (s.pmvNow >  PMV_LIMIT && s.pmvAfter < -PMV_LIMIT)
+               || (s.pmvNow < -PMV_LIMIT && s.pmvAfter >  PMV_LIMIT);
+  if (crosses && s.dw <= 0){
+    const wasHot = s.pmvNow > 0;
+    return {k:"ΑΝΟΙΞΕ ΓΙΑ ΛΙΓΟ", c:"good", sm:true,
+            note:"Έξω είναι " + n1(Math.abs(s.dT)) + " K πιο "
+                 + (wasHot ? "δροσερά" : "ζεστά")
+                 + (s.dw <= -DW_DEAD ? " και πιο ξηρά" : "")
+                 + ". Θα " + (wasHot ? "δροσίσει" : "ζεστάνει")
+                 + " γρήγορα — κλείσε όταν φτάσει, γιατί με τα παράθυρα ανοιχτά θα "
+                 + (wasHot ? "κρυώσεις" : "ζεσταθείς") + "."};
+  }
+
   /* βέτο άνεσης — συμμετρικό: βγαίνεις εκτός ζώνης ΚΑΙ χειρότερα από τώρα,
-     είτε προς τη ζέστη είτε προς το κρύο. */
+     είτε προς τη ζέστη είτε προς το κρύο. Δεν χτυπά στην υπέρβαση παραπάνω. */
   if (Math.abs(s.pmvAfter) > PMV_LIMIT
       && (Math.abs(s.pmvAfter) - Math.abs(s.pmvNow)) > PMV_WORSE_MAX){
     const hot = s.pmvAfter > 0;
@@ -600,8 +626,11 @@ function decide(s){
                      : "")};
   }
 
-  /* ο έξω αέρας πάνω από το απόλυτο όριο ASHRAE, χωρίς κέρδος να το δικαιολογεί */
-  if (s.wOut > W_ASHRAE_MAX && s.dw > -DW_DEAD)
+  /* Ο έξω αέρας πάνω από το απόλυτο όριο ASHRAE, χωρίς κέρδος να το δικαιολογεί.
+     Το `wIn <= W_ASHRAE_MAX` προστέθηκε γιατί ο κανόνας δεν έχει τίποτα να πει όταν ΕΣΥ
+     είσαι ήδη από πάνω: με 13.9 g/kg μέσα και 13.0 έξω, ο έξω αέρας σε ΣΤΕΓΝΩΝΕΙ — και
+     όμως έβγαζε ΚΛΕΙΣΤΑ «επειδή έξω είναι πάνω από το όριο». */
+  if (s.wOut > W_ASHRAE_MAX && s.dw > -DW_DEAD && s.wIn <= W_ASHRAE_MAX)
     return {k:"ΚΛΕΙΣΤΑ", c:"bad",
             note:"Ο αέρας έξω είναι " + n1(s.wOut) + " g/kg — πάνω από το όριο "
                  + W_ASHRAE_MAX + " g/kg του ASHRAE 55."};
@@ -982,6 +1011,41 @@ function renderHours(wNow){
 }
 
 /* ═══════════ Εκκίνηση ═══════════ */
+/* ═══════════ Αυτοέλεγχος έκδοσης ═══════════
+   Το GitHub Pages σερβίρει τη σελίδα με Cache-Control: max-age=600, οπότε μετά από
+   ανέβασμα ο browser κρατά την παλιά έκδοση έως 10΄ — και ο χρήστης δεν έχει τρόπο να
+   το ξέρει. Ούτε το «σκληρό» refresh βοηθά πάντα: παρακάμπτει τον browser, όχι το CDN.
+
+   Λύση: το deploy.ps1 σφραγίζει εδώ την έκδοση ΚΑΙ γράφει version.json. Στο άνοιγμα
+   διαβάζουμε το version.json με πραγματικό cache-busting· αν διαφέρει, ξαναφορτώνουμε
+   με ?v=<έκδοση>. Η ΔΙΑΦΟΡΕΤΙΚΗ διεύθυνση είναι το κλειδί — αλλάζει το κλειδί του CDN,
+   οπότε έρχεται όντως η νέα σελίδα, ενώ ένα σκέτο reload θα ξανάπαιρνε την ίδια.
+
+   Ο έλεγχος «ήμασταν ήδη εδώ» εμποδίζει ατέρμονο κύκλο αν κάτι πάει στραβά. */
+const BUILD = "20260912-134315";   // ← το σφραγίζει το deploy.ps1
+
+async function checkBuild(){
+  if (BUILD === "dev") return;                       // τοπική δοκιμή
+  let live;
+  try {
+    const r = await fetch("./version.json?t=" + Date.now(), {cache:"no-store"});
+    if (!r.ok) return;
+    live = (await r.json()).build;
+  } catch (e){ return; }                             // χωρίς δίκτυο, χωρίς θόρυβο
+  if (!live || live === BUILD) return;
+
+  const q = new URLSearchParams(location.search);
+  if (q.get("v") === live){
+    // Ήρθαμε ήδη με αυτή τη σφραγίδα και πάλι δεν ταιριάζει: μην ξαναφορτώσεις.
+    $("err").style.display = "block";
+    $("err").textContent = "Υπάρχει νεότερη έκδοση της σελίδας αλλά δεν φορτώνει — "
+      + "δοκίμασε ξανά σε λίγα λεπτά.";
+    return;
+  }
+  q.set("v", live);
+  location.replace(location.pathname + "?" + q.toString());
+}
+
 /* ═══════════ Χειροκίνητη ανανέωση μετρήσεων ═══════════
    Το cron του GitHub σε δωρεάν δημόσιο repo παραδίδει 6-8 από τις 96 εκτελέσεις που
    ζητάμε (μετρημένο σε 14 ημέρες), γι' αυτό υπάρχει Cloudflare Worker που το σκουντάει
@@ -1071,6 +1135,7 @@ async function refresh(){
 }
 
 sel.addEventListener("change", function(){ locKey = sel.value; syncURL(); refresh(); });
+checkBuild();
 $("refresh").addEventListener("click", manualRefresh);
 tin.addEventListener("input",  function(){ syncURL(); render(); });
 rhin.addEventListener("input", function(){ syncURL(); render(); });
