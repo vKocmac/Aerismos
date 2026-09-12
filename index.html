@@ -537,13 +537,18 @@ async function loadWeather(){
   if (hOffT)  hourly.temperature_2m = hourly.temperature_2m.map(function(v){ return v + hOffT; });
 }
 
-async function loadPws(){
+/* Το «bust» χρειάζεται ΜΟΝΟ όταν ελέγχουμε επανειλημμένα μετά από χειροκίνητη ανανέωση:
+   ο κάδος 5 λεπτών κρατά την ίδια διεύθυνση, οπότε μέσα στο δίλεπτο της αναμονής το CDN
+   σερβίρει το παλιό αντίγραφο και η ανανέωση φαίνεται να αποτυγχάνει ενώ έχει πετύχει.
+   (Βρέθηκε σε ζωντανή δοκιμή 12/09/2026.) Στη φυσιολογική φόρτωση μένει ο κάδος, για να
+   μη χτυπάμε το Pages σε κάθε άνοιγμα. */
+async function loadPws(bust){
   try{
     /* Το {cache:"no-store"} παρακάμπτει ΜΟΝΟ τον browser. Το GitHub Pages σερβίρει
        με Cache-Control: max-age=600 μέσω Fastly, οπότε μια φρέσκια σάρωση μπορεί να
        αργήσει έως 10′ να φανεί. Ο κάδος 5 λεπτών αλλάζει το URL και σπάει το CDN,
        χωρίς να χτυπάμε το Pages σε κάθε άνοιγμα. */
-    const r = await fetch("./pws.json?t=" + Math.floor(Date.now()/3e5), {cache:"no-store"});
+    const r = await fetch("./pws.json?t=" + (bust ? Date.now() : Math.floor(Date.now()/3e5)), {cache:"no-store"});
     if (!r.ok) return null;
     const j = await r.json();
     return (j && j.stations) ? j : null;
@@ -1021,7 +1026,7 @@ async function manualRefresh(){
 
   for (let i = 1; i <= POLL_TRIES; i++){
     await new Promise(function(res){ setTimeout(res, POLL_EVERY_MS); });
-    const fresh = await loadPws();
+    const fresh = await loadPws(true);
     if (fresh && fresh.fetched !== before){
       pwsObs = fresh;
       await loadWeather();
