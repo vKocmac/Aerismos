@@ -1013,16 +1013,31 @@ async function manualRefresh(){
     return;
   }
 
-  /* «cooldown» ΔΕΝ είναι αποτυχία: κάποιος (ή το χρονόμετρο) μόλις το έτρεξε. Το μόνο
-     που χρειάζεται είναι να ξαναδιαβάσουμε το αρχείο — γι' αυτό πέφτουμε στο poll. */
-  if (!r.ok && r.reason !== "cooldown"){
+  /* «cooldown» ΔΕΝ είναι αποτυχία: το χρονόμετρο (ή κάποιος άλλος) μόλις το έτρεξε, άρα
+     οι μετρήσεις είναι ΗΔΗ φρέσκες. Δεν έχει νόημα να περιμένουμε δύο λεπτά για αλλαγή
+     που δεν θα έρθει — θα κατέληγε σε παραπλανητικό «δεν ήρθαν νέες μετρήσεις». Μία
+     ανάγνωση φτάνει: καλύπτει και την περίπτωση που η σελίδα άνοιξε πριν προλάβει να
+     ανέβει το αρχείο. */
+  if (!r.ok && r.reason === "cooldown"){
+    const fresh = await loadPws(true);
+    if (fresh && fresh.fetched !== before){
+      pwsObs = fresh; await loadWeather(); render();
+    } else {
+      $("metar").innerHTML = "Οι μετρήσεις ανανεώθηκαν <b>πριν "
+        + Math.max(1, Math.round(r.ageMin)) + "΄</b> — είναι ήδη φρέσκες.";
+    }
+    refreshBtn("↻ Ανανέωση", false);
+    return;
+  }
+
+  if (!r.ok){
     refreshBtn("↻ Ανανέωση", false);
     $("metar").innerHTML = "<b>Ο trigger απάντησε " + (r.status || "σφάλμα") + "</b> — "
       + "πιθανότατα έληξε το token. Η σελίδα συνεχίζει με πρόγνωση μοντέλου.";
     return;
   }
 
-  refreshBtn(r.reason === "cooldown" ? "μόλις έτρεξε…" : "μετράει…", true);
+  refreshBtn("μετράει…", true);
 
   for (let i = 1; i <= POLL_TRIES; i++){
     await new Promise(function(res){ setTimeout(res, POLL_EVERY_MS); });
