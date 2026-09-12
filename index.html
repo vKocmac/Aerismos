@@ -49,7 +49,13 @@ table input{width:72px;padding:4px 6px;text-align:right;font-size:15px}
 
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px}
 .card h2{font-size:12px;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px}
-#metar{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;line-height:1.5}
+#srcrow{display:flex;align-items:flex-start;gap:10px;margin-top:10px}
+#metar{flex:1;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums;line-height:1.5}
+#refresh{flex:none;font:inherit;font-size:13px;padding:4px 10px;border-radius:6px;
+  border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;
+  white-space:nowrap}
+#refresh:hover:not(:disabled){color:var(--fg);border-color:var(--dim)}
+#refresh:disabled{opacity:.55;cursor:default}
 #metar.ok b{color:var(--good)} #metar.off b{color:var(--warn)}
 #hours{display:flex;gap:8px}
 #hours div{flex:1;text-align:center;background:#0d1117;border:1px solid var(--line);border-radius:9px;padding:8px 4px}
@@ -180,7 +186,11 @@ footer a{color:var(--dim)}
       <td id="tdin">–</td><td class="w" id="win">–</td>
     </tr>
   </table>
-  <div id="metar" style="margin-top:10px"></div>
+  <div id="srcrow">
+    <div id="metar"></div>
+    <button id="refresh" type="button"
+            title="Ζητά νέα μέτρηση από τους τοπικούς σταθμούς τώρα">↻ Ανανέωση</button>
+  </div>
 </div>
 
 <div class="card">
@@ -967,6 +977,66 @@ function renderHours(wNow){
 }
 
 /* ═══════════ Εκκίνηση ═══════════ */
+/* ═══════════ Χειροκίνητη ανανέωση μετρήσεων ═══════════
+   Το cron του GitHub σε δωρεάν δημόσιο repo παραδίδει 6-8 από τις 96 εκτελέσεις που
+   ζητάμε (μετρημένο σε 14 ημέρες), γι' αυτό υπάρχει Cloudflare Worker που το σκουντάει
+   κάθε 15΄. Αυτό το κουμπί ζητά ένα σκούντημα ΤΩΡΑ.
+
+   Δεν στέλνεται κλειδί: ένα κλειδί μέσα σε δημόσια σελίδα φαίνεται με «προβολή πηγαίου».
+   Ο Worker προστατεύεται με χρονικό φράγμα αντί για μυστικό. */
+const WORKER_REFRESH = "https://aerismos-pws-trigger.noname2142.workers.dev/refresh";
+const POLL_EVERY_MS  = 10000;   // το scraping 9 σταθμών θέλει ~50΄΄
+const POLL_TRIES     = 12;      // → 2 λεπτά υπομονής
+
+function refreshBtn(text, busy){
+  const b = $("refresh");
+  if (!b) return;
+  b.textContent = text;
+  b.disabled = !!busy;
+}
+
+async function manualRefresh(){
+  const before = pwsObs && pwsObs.fetched;
+  refreshBtn("ζητήθηκε…", true);
+
+  let r = null;
+  try { r = await (await fetch(WORKER_REFRESH, {cache:"no-store"})).json(); }
+  catch(e){
+    refreshBtn("↻ Ανανέωση", false);
+    $("metar").innerHTML = "<b>Δεν απάντησε ο trigger</b> — η ανανέωση γίνεται μόνη της "
+      + "κάθε 15΄. Δοκίμασε ξανά σε λίγο.";
+    return;
+  }
+
+  /* «cooldown» ΔΕΝ είναι αποτυχία: κάποιος (ή το χρονόμετρο) μόλις το έτρεξε. Το μόνο
+     που χρειάζεται είναι να ξαναδιαβάσουμε το αρχείο — γι' αυτό πέφτουμε στο poll. */
+  if (!r.ok && r.reason !== "cooldown"){
+    refreshBtn("↻ Ανανέωση", false);
+    $("metar").innerHTML = "<b>Ο trigger απάντησε " + (r.status || "σφάλμα") + "</b> — "
+      + "πιθανότατα έληξε το token. Η σελίδα συνεχίζει με πρόγνωση μοντέλου.";
+    return;
+  }
+
+  refreshBtn(r.reason === "cooldown" ? "μόλις έτρεξε…" : "μετράει…", true);
+
+  for (let i = 1; i <= POLL_TRIES; i++){
+    await new Promise(function(res){ setTimeout(res, POLL_EVERY_MS); });
+    const fresh = await loadPws();
+    if (fresh && fresh.fetched !== before){
+      pwsObs = fresh;
+      await loadWeather();
+      render();
+      refreshBtn("↻ Ανανέωση", false);
+      return;
+    }
+    refreshBtn("μετράει… " + (i*POLL_EVERY_MS/1000) + "΄΄", true);
+  }
+
+  refreshBtn("↻ Ανανέωση", false);
+  $("metar").innerHTML = "<b>Δεν ήρθαν νέες μετρήσεις σε 2 λεπτά</b> — το Action μπορεί "
+    + "να αργεί ή να απέτυχε. Δοκίμασε ξανά ή δες τα GitHub Actions.";
+}
+
 async function refresh(){
   try{
     $("err").style.display = "none";
@@ -981,6 +1051,7 @@ async function refresh(){
 }
 
 sel.addEventListener("change", function(){ locKey = sel.value; syncURL(); refresh(); });
+$("refresh").addEventListener("click", manualRefresh);
 tin.addEventListener("input",  function(){ syncURL(); render(); });
 rhin.addEventListener("input", function(){ syncURL(); render(); });
 document.addEventListener("visibilitychange", function(){
