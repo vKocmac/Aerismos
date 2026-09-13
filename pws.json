@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-13T17:46:49.173Z",
+ "fetched": "2026-09-13T18:02:01.173Z",
  "stations": {
   "IALIMO14": {
-   "obsTime": 1789321596,
+   "obsTime": 1789322500,
    "temp": 26.3,
    "dewpt": 18.2,
    "humidity": 61,
    "pressure": 1005.1
   },
+  "IARGYR7": {
+   "obsTime": 1789322504,
+   "temp": 26.1,
+   "dewpt": 17.7,
+   "humidity": 60,
+   "pressure": 1020.3
+  },
+  "IARGYR10": {
+   "obsTime": 1789322468,
+   "temp": 26.4,
+   "dewpt": 17.6,
+   "humidity": 59,
+   "pressure": 1021
+  },
+  "IARGYR9": {
+   "obsTime": 1789322431,
+   "temp": 26.1,
+   "dewpt": 17.6,
+   "humidity": 60,
+   "pressure": 1036.9
+  },
   "IALIMO16": {
-   "obsTime": 1789321593,
+   "obsTime": 1789322517,
    "temp": 26.4,
    "dewpt": 17.9,
    "humidity": 60,
    "pressure": 1013.5
   },
-  "IARGYR7": {
-   "obsTime": 1789321592,
-   "temp": 25.9,
-   "dewpt": 17.5,
-   "humidity": 60,
-   "pressure": 1020.3
-  },
-  "IARGYR9": {
-   "obsTime": 1789321576,
-   "temp": 26,
-   "dewpt": 17.5,
-   "humidity": 60,
-   "pressure": 1036.9
-  },
-  "IARGYR10": {
-   "obsTime": 1789321552,
-   "temp": 26.3,
-   "dewpt": 17.5,
-   "humidity": 59,
-   "pressure": 1021
+  "IMARAT24": {
+   "obsTime": 1789322515,
+   "temp": 24.9,
+   "dewpt": 16.8,
+   "humidity": 61,
+   "pressure": 1014.9
   },
   "IILIOU4": {
-   "obsTime": 1789321595,
+   "obsTime": 1789322507,
    "temp": 26.3,
    "dewpt": 17.1,
    "humidity": 57,
-   "pressure": 1010.8
+   "pressure": 1011.2
   },
   "IMARAT19": {
-   "obsTime": 1789321603,
-   "temp": 25.1,
-   "dewpt": 17,
+   "obsTime": 1789322515,
+   "temp": 25,
+   "dewpt": 16.9,
    "humidity": 61,
    "pressure": 1016.9
   },
-  "IMARAT24": {
-   "obsTime": 1789321602,
-   "temp": 25.2,
-   "dewpt": 16.6,
-   "humidity": 59,
-   "pressure": 1014.9
-  },
   "IMARAT16": {
-   "obsTime": 1789321200,
-   "temp": 25.1,
-   "dewpt": 13.9,
-   "humidity": 50,
-   "pressure": 1016.3
+   "obsTime": 1789322400,
+   "temp": 24.7,
+   "dewpt": 13.2,
+   "humidity": 49,
+   "pressure": 1016.6
   }
  }
 }
