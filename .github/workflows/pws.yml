@@ -10,6 +10,13 @@
 #
 # ΕΥΘΡΑΥΣΤΟ ΕΞ ΟΡΙΣΜΟΥ: αν αλλάξει η σελίδα τους, σπάει. Γι' αυτό η σελίδα έχει
 # επιλογέα πηγής και υποχωρεί μόνη της στο μοντέλο όταν το pws.json λείπει ή παλιώσει.
+#
+# ΠΟΙΟΣ ΤΟ ΞΕΚΙΝΑ — τρεις δρόμοι, και μπορούν να συμπέσουν:
+#   1. Cloudflare Worker, κάθε 15΄ (workflow_dispatch) — ο ΚΥΡΙΟΣ.
+#   2. Το schedule παρακάτω — ΕΦΕΔΡΕΙΑ. Σε δωρεάν δημόσιο repo το GitHub παραδίδει 6-8
+#      από τις 96 εκτελέσεις την ημέρα (μετρημένο 29/08-12/09/2026). Κράτησε όμως
+#      μετρήσεις τη νύχτα 12→13/09 που σώπασε η Cloudflare.
+#   3. Η ίδια η σελίδα (κουμπί «Ανανέωση» ή αυτόματα όταν ανοίγει με παλιά δεδομένα).
 
 name: PWS τοπικοί σταθμοί
 
@@ -19,10 +26,6 @@ on:
     # scheduled runs καθυστερούν ή χάνονται. Μετατοπισμένα λεπτά, ίδια συχνότητα.
     - cron: '3,18,33,48 * * * *'
   workflow_dispatch:
-
-# Ουδέτερη αλλαγή 29/08/2026: κανονικό commit πάνω στο υπάρχον ιστορικό, για να δούμε αν
-# το GitHub καταχωρεί το schedule όταν ΔΕΝ έχει προηγηθεί force-push. Τα προηγούμενα
-# deploys έκαναν git init + push -f και ο scheduler δεν παρέδωσε ποτέ event.
 
 permissions:
   contents: write
@@ -36,6 +39,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Η ΤΕΛΕΥΤΑΙΑ έκδοση του main τη στιγμή που ξεκινά το job — ΟΧΙ το commit που το
+          # πυροδότησε. 13/09/2026: run του Worker (06:16 UTC) και εφεδρικό cron (06:17)
+          # πυροδοτήθηκαν από το ίδιο commit. Το concurrency τα έβαλε σωστά σε σειρά, αλλά
+          # το δεύτερο έκανε checkout την παλιά εικόνα και το push του απορρίφθηκε.
+          ref: main
 
       - uses: actions/setup-node@v5
         with:
@@ -51,10 +60,25 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain pws.json)" ]; then
-            git add pws.json
-            git commit -m "PWS $(date -u +'%Y-%m-%dT%H:%MZ')"
-            git push
-          else
+          if [ -z "$(git status --porcelain pws.json)" ]; then
             echo "Καμία αλλαγή."
+            exit 0
           fi
+          git add pws.json
+          git commit -m "PWS $(date -u +'%Y-%m-%dT%H:%MZ')"
+          # Αν στο μεταξύ ανέβηκε άλλο commit (deploy ή άλλο run στα ίδια δευτερόλεπτα),
+          # ενσωμάτωσέ το και ξαναδοκίμασε. Στο rebase το «-X theirs» κρατά το ΔΙΚΟ ΜΑΣ
+          # pws.json — τη νεότερη σάρωση. Όλα τα άλλα αρχεία έρχονται από το main, οπότε
+          # ένα run δεν μπορεί ποτέ να αναιρέσει deploy.
+          for i in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "Απορρίφθηκε το push (προσπάθεια $i) — ενσωμάτωση του main και ξανά."
+            sleep $((i * 5))
+            if ! git pull --rebase -X theirs origin main; then
+              git rebase --abort || true
+              exit 1
+            fi
+          done
+          exit 1
