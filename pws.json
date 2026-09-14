@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-14T04:31:00.750Z",
+ "fetched": "2026-09-14T04:46:14.159Z",
  "stations": {
+  "IARGYR7": {
+   "obsTime": 1789361155,
+   "temp": 23.1,
+   "dewpt": 15.1,
+   "humidity": 61,
+   "pressure": 1022.4
+  },
   "IARGYR10": {
-   "obsTime": 1789360238,
+   "obsTime": 1789361158,
    "temp": 23.3,
-   "dewpt": 16.1,
-   "humidity": 64,
+   "dewpt": 15,
+   "humidity": 60,
    "pressure": 1022.7
   },
+  "IALIMO14": {
+   "obsTime": 1789361136,
+   "temp": 23.6,
+   "dewpt": 16.1,
+   "humidity": 63,
+   "pressure": 1006.8
+  },
   "IALIMO16": {
-   "obsTime": 1789360242,
+   "obsTime": 1789361167,
    "temp": 23.8,
    "dewpt": 15.5,
    "humidity": 60,
    "pressure": 1015.6
   },
   "IARGYR9": {
-   "obsTime": 1789360208,
+   "obsTime": 1789361140,
    "temp": 23.5,
-   "dewpt": 15.7,
-   "humidity": 62,
+   "dewpt": 16.1,
+   "humidity": 64,
    "pressure": 1038.6
   },
   "IMARAT24": {
-   "obsTime": 1789360243,
-   "temp": 20.7,
-   "dewpt": 18.5,
-   "humidity": 87,
-   "pressure": 1015.9
-  },
-  "IILIOU4": {
-   "obsTime": 1789360250,
-   "temp": 23.5,
-   "dewpt": 14,
-   "humidity": 55,
-   "pressure": 1012.5
+   "obsTime": 1789361167,
+   "temp": 20.9,
+   "dewpt": 18.3,
+   "humidity": 85,
+   "pressure": 1016.9
   },
   "IMARAT19": {
-   "obsTime": 1789360242,
-   "temp": 22.5,
-   "dewpt": 18.4,
+   "obsTime": 1789361166,
+   "temp": 22.7,
+   "dewpt": 18.5,
    "humidity": 77,
-   "pressure": 1017.9
-  },
-  "IARGYR7": {
-   "obsTime": 1789360255,
-   "temp": 23.2,
-   "dewpt": 16,
-   "humidity": 64,
-   "pressure": 1022
-  },
-  "IALIMO14": {
-   "obsTime": 1789360236,
-   "temp": 23.4,
-   "dewpt": 16,
-   "humidity": 63,
-   "pressure": 1006.8
+   "pressure": 1019
   },
   "IMARAT16": {
-   "obsTime": 1789360200,
-   "temp": 20.7,
+   "obsTime": 1789360800,
+   "temp": 20.8,
    "dewpt": -37.3,
    "humidity": 1,
    "pressure": 1018.3
+  },
+  "IILIOU4": {
+   "obsTime": 1789361162,
+   "temp": 23.4,
+   "dewpt": 14.7,
+   "humidity": 58,
+   "pressure": 1012.5
   }
  }
 }
