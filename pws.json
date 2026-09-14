@@ -1,67 +1,67 @@
 {
- "fetched": "2026-09-14T08:16:44.986Z",
+ "fetched": "2026-09-14T08:32:01.011Z",
  "stations": {
-  "IALIMO16": {
-   "obsTime": 1789373784,
-   "temp": 27,
-   "dewpt": 13.3,
-   "humidity": 43,
-   "pressure": 1016.6
-  },
-  "IALIMO14": {
-   "obsTime": 1789373736,
-   "temp": 28.2,
-   "dewpt": 14.8,
-   "humidity": 44,
-   "pressure": 1007.8
-  },
   "IARGYR10": {
-   "obsTime": 1789373788,
-   "temp": 28.3,
-   "dewpt": 13.6,
+   "obsTime": 1789374704,
+   "temp": 28.1,
+   "dewpt": 13.4,
    "humidity": 41,
    "pressure": 1023.7
   },
+  "IALIMO16": {
+   "obsTime": 1789374696,
+   "temp": 27.5,
+   "dewpt": 13.4,
+   "humidity": 42,
+   "pressure": 1016.6
+  },
+  "IARGYR9": {
+   "obsTime": 1789374670,
+   "temp": 28.5,
+   "dewpt": 13.4,
+   "humidity": 40,
+   "pressure": 1039.3
+  },
   "IILIOU4": {
-   "obsTime": 1789373792,
-   "temp": 27.9,
-   "dewpt": 12.7,
-   "humidity": 39,
-   "pressure": 1013.5
+   "obsTime": 1789374698,
+   "temp": 28.5,
+   "dewpt": 12.4,
+   "humidity": 37,
+   "pressure": 1013.2
+  },
+  "IARGYR7": {
+   "obsTime": 1789374715,
+   "temp": 25.8,
+   "dewpt": 12.6,
+   "humidity": 44,
+   "pressure": 1023.4
+  },
+  "IALIMO14": {
+   "obsTime": 1789374696,
+   "temp": 28.2,
+   "dewpt": 14,
+   "humidity": 42,
+   "pressure": 1007.5
   },
   "IMARAT24": {
-   "obsTime": 1789373791,
+   "obsTime": 1789374703,
    "temp": 27.5,
-   "dewpt": 14.6,
-   "humidity": 45,
+   "dewpt": 13.5,
+   "humidity": 42,
    "pressure": 1016.9
   },
   "IMARAT19": {
-   "obsTime": 1789373790,
-   "temp": 27,
-   "dewpt": 14.1,
-   "humidity": 45,
+   "obsTime": 1789374714,
+   "temp": 26.6,
+   "dewpt": 13.3,
+   "humidity": 44,
    "pressure": 1020
   },
-  "IARGYR7": {
-   "obsTime": 1789373789,
-   "temp": 25.6,
-   "dewpt": 12.8,
-   "humidity": 45,
-   "pressure": 1023.4
-  },
-  "IARGYR9": {
-   "obsTime": 1789373728,
-   "temp": 28,
-   "dewpt": 13.7,
-   "humidity": 42,
-   "pressure": 1039.6
-  },
   "IMARAT16": {
-   "obsTime": 1789373400,
-   "temp": 26.7,
-   "dewpt": 15.1,
-   "humidity": 49,
+   "obsTime": 1789374600,
+   "temp": 26.9,
+   "dewpt": 15,
+   "humidity": 48,
    "pressure": 1019.3
   }
  }
