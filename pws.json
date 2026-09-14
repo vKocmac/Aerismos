@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-14T18:16:56.732Z",
+ "fetched": "2026-09-14T18:31:40.032Z",
  "stations": {
   "IARGYR7": {
-   "obsTime": 1789409789,
+   "obsTime": 1789410688,
    "temp": 25.1,
    "dewpt": 11.9,
    "humidity": 44,
    "pressure": 1022.7
   },
-  "IALIMO16": {
-   "obsTime": 1789409789,
-   "temp": 25.5,
+  "IARGYR9": {
+   "obsTime": 1789410672,
+   "temp": 25.3,
    "dewpt": 12.2,
    "humidity": 44,
-   "pressure": 1015.6
-  },
-  "IMARAT24": {
-   "obsTime": 1789409803,
-   "temp": 22.4,
-   "dewpt": 14.2,
-   "humidity": 60,
-   "pressure": 1016.9
-  },
-  "IILIOU4": {
-   "obsTime": 1789409801,
-   "temp": 25.1,
-   "dewpt": 11.3,
-   "humidity": 42,
-   "pressure": 1012.5
-  },
-  "IARGYR9": {
-   "obsTime": 1789409737,
-   "temp": 25.2,
-   "dewpt": 12.3,
-   "humidity": 45,
    "pressure": 1038.9
   },
-  "IARGYR10": {
-   "obsTime": 1789409793,
-   "temp": 25.3,
-   "dewpt": 12.2,
-   "humidity": 44,
-   "pressure": 1022.7
-  },
   "IALIMO14": {
-   "obsTime": 1789409793,
+   "obsTime": 1789410633,
    "temp": 25.3,
-   "dewpt": 12.8,
+   "dewpt": 12.9,
    "humidity": 46,
    "pressure": 1007.1
   },
+  "IARGYR10": {
+   "obsTime": 1789410644,
+   "temp": 25.3,
+   "dewpt": 12.2,
+   "humidity": 44,
+   "pressure": 1023
+  },
+  "IALIMO16": {
+   "obsTime": 1789410689,
+   "temp": 25.4,
+   "dewpt": 12.5,
+   "humidity": 45,
+   "pressure": 1016.6
+  },
+  "IMARAT24": {
+   "obsTime": 1789410691,
+   "temp": 22.4,
+   "dewpt": 14.5,
+   "humidity": 61,
+   "pressure": 1016.9
+  },
+  "IMARAT16": {
+   "obsTime": 1789410600,
+   "temp": 21.6,
+   "dewpt": 7.8,
+   "humidity": 41,
+   "pressure": 1018.6
+  },
+  "IILIOU4": {
+   "obsTime": 1789410691,
+   "temp": 25.1,
+   "dewpt": 11.3,
+   "humidity": 42,
+   "pressure": 1012.9
+  },
   "IMARAT19": {
-   "obsTime": 1789409814,
+   "obsTime": 1789410690,
    "temp": 23.2,
    "dewpt": 14.2,
    "humidity": 57,
    "pressure": 1019
-  },
-  "IMARAT16": {
-   "obsTime": 1789409400,
-   "temp": 21.4,
-   "dewpt": 8.7,
-   "humidity": 44,
-   "pressure": 1018.6
   }
  }
 }
