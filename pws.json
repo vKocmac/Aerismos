@@ -1,67 +1,60 @@
 {
- "fetched": "2026-09-14T16:01:46.753Z",
+ "fetched": "2026-09-14T16:17:00.459Z",
  "stations": {
+  "IARGYR9": {
+   "obsTime": 1789402587,
+   "temp": 25.8,
+   "dewpt": 13.3,
+   "humidity": 46,
+   "pressure": 1037.9
+  },
   "IALIMO16": {
-   "obsTime": 1789401684,
-   "temp": 26.3,
+   "obsTime": 1789402598,
+   "temp": 26,
    "dewpt": 13.4,
-   "humidity": 45,
+   "humidity": 46,
    "pressure": 1015.6
   },
-  "IARGYR10": {
-   "obsTime": 1789401679,
-   "temp": 26.6,
-   "dewpt": 13.3,
-   "humidity": 44,
-   "pressure": 1022.7
-  },
-  "IARGYR9": {
-   "obsTime": 1789401652,
-   "temp": 26.6,
-   "dewpt": 13.3,
-   "humidity": 44,
-   "pressure": 1037.6
-  },
-  "IMARAT24": {
-   "obsTime": 1789401691,
-   "temp": 25.4,
-   "dewpt": 13.9,
-   "humidity": 49,
-   "pressure": 1015.9
-  },
-  "IMARAT19": {
-   "obsTime": 1789401690,
-   "temp": 24.5,
-   "dewpt": 14.4,
-   "humidity": 53,
-   "pressure": 1019
-  },
   "IILIOU4": {
-   "obsTime": 1789401695,
-   "temp": 26.1,
-   "dewpt": 12.6,
+   "obsTime": 1789402601,
+   "temp": 25.7,
+   "dewpt": 12.2,
    "humidity": 43,
    "pressure": 1012.2
   },
-  "IARGYR7": {
-   "obsTime": 1789401694,
-   "temp": 26,
-   "dewpt": 13.1,
+  "IMARAT19": {
+   "obsTime": 1789402602,
+   "temp": 24.1,
+   "dewpt": 14.5,
+   "humidity": 55,
+   "pressure": 1019
+  },
+  "IMARAT24": {
+   "obsTime": 1789402603,
+   "temp": 24.7,
+   "dewpt": 13.6,
+   "humidity": 50,
+   "pressure": 1015.9
+  },
+  "IARGYR10": {
+   "obsTime": 1789402593,
+   "temp": 25.8,
+   "dewpt": 12.9,
    "humidity": 45,
+   "pressure": 1022.7
+  },
+  "IARGYR7": {
+   "obsTime": 1789402606,
+   "temp": 25.5,
+   "dewpt": 13,
+   "humidity": 46,
    "pressure": 1021.7
   },
-  "IALIMO14": {
-   "obsTime": 1789401695,
-   "temp": 26.1,
-   "dewpt": 13.8,
-   "humidity": 47,
-   "pressure": 1006.4
-  },
   "IMARAT16": {
-   "obsTime": 1789401600,
-   "temp": 24.9,
-   "dewpt": 14.3,
-   "humidity": 52,
+   "obsTime": 1789402200,
+   "temp": 24.6,
+   "dewpt": 14.4,
+   "humidity": 53,
    "pressure": 1018.3
   }
  }
