@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-14T19:01:34.692Z",
+ "fetched": "2026-09-14T19:15:49.915Z",
  "stations": {
-  "IALIMO14": {
-   "obsTime": 1789412435,
-   "temp": 25.1,
-   "dewpt": 12.7,
-   "humidity": 46,
-   "pressure": 1007.5
+  "IARGYR10": {
+   "obsTime": 1789413339,
+   "temp": 25.3,
+   "dewpt": 11.4,
+   "humidity": 42,
+   "pressure": 1023.4
   },
   "IARGYR9": {
-   "obsTime": 1789412482,
-   "temp": 25.3,
+   "obsTime": 1789413252,
+   "temp": 25.5,
    "dewpt": 12.2,
    "humidity": 44,
    "pressure": 1039.3
   },
   "IARGYR7": {
-   "obsTime": 1789412482,
-   "temp": 25.2,
-   "dewpt": 12,
-   "humidity": 44,
+   "obsTime": 1789413334,
+   "temp": 25.1,
+   "dewpt": 11.6,
+   "humidity": 43,
    "pressure": 1023
   },
-  "IARGYR10": {
-   "obsTime": 1789412479,
-   "temp": 25.3,
-   "dewpt": 11.8,
-   "humidity": 43,
-   "pressure": 1023.4
-  },
   "IALIMO16": {
-   "obsTime": 1789412478,
-   "temp": 25.6,
-   "dewpt": 12.7,
+   "obsTime": 1789413330,
+   "temp": 25.7,
+   "dewpt": 12.8,
    "humidity": 45,
    "pressure": 1016.6
   },
+  "IALIMO14": {
+   "obsTime": 1789413274,
+   "temp": 25.3,
+   "dewpt": 12.8,
+   "humidity": 46,
+   "pressure": 1007.5
+  },
   "IILIOU4": {
-   "obsTime": 1789412473,
+   "obsTime": 1789413337,
    "temp": 25.3,
    "dewpt": 10.8,
    "humidity": 40,
    "pressure": 1013.2
   },
-  "IMARAT24": {
-   "obsTime": 1789412491,
-   "temp": 22.3,
-   "dewpt": 14.4,
-   "humidity": 61,
-   "pressure": 1016.9
+  "IMARAT19": {
+   "obsTime": 1789413342,
+   "temp": 23.2,
+   "dewpt": 14.7,
+   "humidity": 59,
+   "pressure": 1019
   },
   "IMARAT16": {
-   "obsTime": 1789412400,
+   "obsTime": 1789413000,
    "temp": 21.8,
-   "dewpt": 9,
-   "humidity": 44,
-   "pressure": 1018.6
-  },
-  "IMARAT19": {
-   "obsTime": 1789412490,
-   "temp": 23.2,
-   "dewpt": 14.4,
-   "humidity": 58,
+   "dewpt": 8.3,
+   "humidity": 42,
    "pressure": 1019
+  },
+  "IMARAT24": {
+   "obsTime": 1789413343,
+   "temp": 22.4,
+   "dewpt": 14.5,
+   "humidity": 61,
+   "pressure": 1016.9
   }
  }
 }
