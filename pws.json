@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-15T17:16:44.222Z",
+ "fetched": "2026-09-15T17:31:40.554Z",
  "stations": {
+  "IALIMO14": {
+   "obsTime": 1789493434,
+   "temp": 22.2,
+   "dewpt": 12.2,
+   "humidity": 53,
+   "pressure": 1005.4
+  },
   "IALIMO16": {
-   "obsTime": 1789492584,
+   "obsTime": 1789493484,
    "temp": 22.6,
    "dewpt": 11.8,
    "humidity": 51,
    "pressure": 1014.6
   },
   "IARGYR7": {
-   "obsTime": 1789492578,
+   "obsTime": 1789493483,
    "temp": 22.2,
-   "dewpt": 11.2,
-   "humidity": 50,
+   "dewpt": 11.5,
+   "humidity": 51,
    "pressure": 1020.7
   },
-  "IILIOU4": {
-   "obsTime": 1789492591,
-   "temp": 22.2,
-   "dewpt": 10.7,
-   "humidity": 48,
-   "pressure": 1010.8
-  },
-  "IMARAT24": {
-   "obsTime": 1789492590,
-   "temp": 22.8,
-   "dewpt": 13.3,
-   "humidity": 55,
-   "pressure": 1013.9
-  },
   "IARGYR10": {
-   "obsTime": 1789492568,
+   "obsTime": 1789493484,
    "temp": 22.4,
    "dewpt": 11.7,
    "humidity": 51,
    "pressure": 1021
   },
-  "IALIMO14": {
-   "obsTime": 1789492594,
-   "temp": 22.2,
-   "dewpt": 12.2,
-   "humidity": 53,
-   "pressure": 1005.4
-  },
   "IARGYR9": {
-   "obsTime": 1789492536,
+   "obsTime": 1789493468,
    "temp": 22.5,
-   "dewpt": 12.2,
-   "humidity": 52,
+   "dewpt": 11.9,
+   "humidity": 51,
    "pressure": 1036.9
   },
-  "IMARAT19": {
-   "obsTime": 1789492590,
-   "temp": 23,
-   "dewpt": 13.2,
+  "IILIOU4": {
+   "obsTime": 1789493495,
+   "temp": 22.3,
+   "dewpt": 10.8,
+   "humidity": 48,
+   "pressure": 1011.2
+  },
+  "IMARAT24": {
+   "obsTime": 1789493490,
+   "temp": 22.9,
+   "dewpt": 13.1,
    "humidity": 54,
-   "pressure": 1016.9
+   "pressure": 1013.9
+  },
+  "IMARAT19": {
+   "obsTime": 1789493490,
+   "temp": 23,
+   "dewpt": 12.9,
+   "humidity": 53,
+   "pressure": 1015.9
   },
   "IMARAT16": {
-   "obsTime": 1789492200,
-   "temp": 22.4,
-   "dewpt": 12.7,
-   "humidity": 54,
-   "pressure": 1016.3
+   "obsTime": 1789493400,
+   "temp": 22.6,
+   "dewpt": 13.1,
+   "humidity": 55,
+   "pressure": 1015.9
   }
  }
 }
