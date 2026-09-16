@@ -1,67 +1,67 @@
 {
- "fetched": "2026-09-16T03:16:48.565Z",
+ "fetched": "2026-09-16T03:31:37.731Z",
  "stations": {
   "IARGYR9": {
-   "obsTime": 1789528528,
+   "obsTime": 1789529468,
    "temp": 21.7,
-   "dewpt": 12.5,
-   "humidity": 56,
+   "dewpt": 11.9,
+   "humidity": 54,
    "pressure": 1035.9
   },
-  "IALIMO14": {
-   "obsTime": 1789528534,
-   "temp": 21.4,
-   "dewpt": 12.3,
-   "humidity": 56,
-   "pressure": 1004.1
-  },
-  "IMARAT24": {
-   "obsTime": 1789528590,
-   "temp": 22.4,
-   "dewpt": 13.7,
-   "humidity": 58,
-   "pressure": 1012.9
-  },
-  "IILIOU4": {
-   "obsTime": 1789528597,
-   "temp": 21.6,
-   "dewpt": 11.3,
-   "humidity": 52,
-   "pressure": 1009.5
-  },
   "IARGYR10": {
-   "obsTime": 1789528573,
-   "temp": 21.4,
-   "dewpt": 12.2,
-   "humidity": 56,
+   "obsTime": 1789529424,
+   "temp": 21.7,
+   "dewpt": 11.9,
+   "humidity": 54,
    "pressure": 1020
   },
-  "IALIMO16": {
-   "obsTime": 1789528594,
-   "temp": 21.8,
-   "dewpt": 12,
-   "humidity": 54,
-   "pressure": 1013.5
+  "IALIMO14": {
+   "obsTime": 1789529438,
+   "temp": 21.1,
+   "dewpt": 13.1,
+   "humidity": 60,
+   "pressure": 1004.1
   },
   "IARGYR7": {
-   "obsTime": 1789528593,
-   "temp": 21.4,
-   "dewpt": 12.2,
-   "humidity": 56,
+   "obsTime": 1789529482,
+   "temp": 21.6,
+   "dewpt": 11.9,
+   "humidity": 54,
    "pressure": 1019.6
   },
+  "IALIMO16": {
+   "obsTime": 1789529482,
+   "temp": 21.3,
+   "dewpt": 12.9,
+   "humidity": 59,
+   "pressure": 1013.5
+  },
+  "IILIOU4": {
+   "obsTime": 1789529477,
+   "temp": 21.6,
+   "dewpt": 11.1,
+   "humidity": 51,
+   "pressure": 1009.5
+  },
+  "IMARAT24": {
+   "obsTime": 1789529490,
+   "temp": 22.4,
+   "dewpt": 13.1,
+   "humidity": 56,
+   "pressure": 1012.9
+  },
   "IMARAT19": {
-   "obsTime": 1789528602,
-   "temp": 22.5,
-   "dewpt": 13.6,
-   "humidity": 57,
+   "obsTime": 1789529490,
+   "temp": 22.6,
+   "dewpt": 13.1,
+   "humidity": 55,
    "pressure": 1014.9
   },
   "IMARAT16": {
-   "obsTime": 1789528200,
+   "obsTime": 1789529400,
    "temp": 22.1,
-   "dewpt": 11.4,
-   "humidity": 51,
+   "dewpt": 12.3,
+   "humidity": 54,
    "pressure": 1014.9
   }
  }
