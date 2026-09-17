@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-17T12:46:06.020Z",
+ "fetched": "2026-09-17T13:01:03.127Z",
  "stations": {
   "IARGYR7": {
-   "obsTime": 1789649145,
+   "obsTime": 1789650045,
    "temp": 26.5,
-   "dewpt": 10.3,
-   "humidity": 36,
+   "dewpt": 9.9,
+   "humidity": 35,
    "pressure": 1018.6
   },
   "IARGYR9": {
-   "obsTime": 1789649087,
+   "obsTime": 1789650019,
    "temp": 28.6,
-   "dewpt": 11.1,
-   "humidity": 34,
+   "dewpt": 10.7,
+   "humidity": 33,
    "pressure": 1034.9
   },
+  "IARGYR10": {
+   "obsTime": 1789650049,
+   "temp": 28.1,
+   "dewpt": 10.3,
+   "humidity": 33,
+   "pressure": 1019.3
+  },
   "IALIMO16": {
-   "obsTime": 1789649140,
-   "temp": 27.6,
-   "dewpt": 10.7,
-   "humidity": 35,
+   "obsTime": 1789650040,
+   "temp": 27,
+   "dewpt": 9.8,
+   "humidity": 34,
    "pressure": 1012.9
   },
   "IILIOU4": {
-   "obsTime": 1789649138,
-   "temp": 28.3,
-   "dewpt": 10.1,
-   "humidity": 32,
+   "obsTime": 1789650050,
+   "temp": 27.6,
+   "dewpt": 9,
+   "humidity": 31,
    "pressure": 1008.8
   },
   "IMARAT24": {
-   "obsTime": 1789649142,
-   "temp": 27.8,
-   "dewpt": 12.2,
+   "obsTime": 1789650054,
+   "temp": 27.9,
+   "dewpt": 12.3,
    "humidity": 38,
    "pressure": 1012.9
   },
   "IMARAT19": {
-   "obsTime": 1789649143,
-   "temp": 27.2,
-   "dewpt": 10.8,
-   "humidity": 36,
+   "obsTime": 1789650055,
+   "temp": 27.4,
+   "dewpt": 11.8,
+   "humidity": 38,
    "pressure": 1014.9
   },
-  "IARGYR10": {
-   "obsTime": 1789649130,
-   "temp": 28.1,
-   "dewpt": 10.7,
-   "humidity": 34,
-   "pressure": 1019.6
+  "IALIMO14": {
+   "obsTime": 1789650034,
+   "temp": 27.1,
+   "dewpt": 11.2,
+   "humidity": 37,
+   "pressure": 1003.4
   },
   "IMARAT16": {
-   "obsTime": 1789648800,
+   "obsTime": 1789650000,
    "temp": 27.3,
-   "dewpt": 12.5,
-   "humidity": 40,
+   "dewpt": 13.2,
+   "humidity": 42,
    "pressure": 1014.6
-  },
-  "IALIMO14": {
-   "obsTime": 1789649131,
-   "temp": 27.9,
-   "dewpt": 11.9,
-   "humidity": 37,
-   "pressure": 1003
   }
  }
 }
