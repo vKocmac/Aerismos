@@ -1,68 +1,68 @@
 {
- "fetched": "2026-09-19T17:29:37.784Z",
+ "fetched": "2026-09-19T17:31:44.184Z",
  "stations": {
-  "IARGYR7": {
-   "obsTime": 1789838962,
-   "temp": 26.2,
-   "dewpt": 14.3,
-   "humidity": 48,
-   "pressure": 1024.4
-  },
-  "IARGYR9": {
-   "obsTime": 1789838904,
-   "temp": 26.1,
-   "dewpt": 14.3,
-   "humidity": 48,
-   "pressure": 1040.6
-  },
-  "IILIOU4": {
-   "obsTime": 1789838959,
-   "temp": 26.3,
-   "dewpt": 13.5,
-   "humidity": 45,
-   "pressure": 1014.9
-  },
-  "IMARAT24": {
-   "obsTime": 1789838959,
-   "temp": 22.5,
-   "dewpt": 14.7,
-   "humidity": 61,
-   "pressure": 1019
-  },
   "IALIMO14": {
-   "obsTime": 1789838965,
+   "obsTime": 1789839086,
    "temp": 25.7,
    "dewpt": 15.1,
    "humidity": 52,
    "pressure": 1009.1
   },
+  "IARGYR7": {
+   "obsTime": 1789839082,
+   "temp": 26.1,
+   "dewpt": 14.2,
+   "humidity": 48,
+   "pressure": 1024.7
+  },
+  "IILIOU4": {
+   "obsTime": 1789839093,
+   "temp": 26.3,
+   "dewpt": 13.1,
+   "humidity": 44,
+   "pressure": 1014.9
+  },
+  "IMARAT24": {
+   "obsTime": 1789839091,
+   "temp": 22.5,
+   "dewpt": 14.4,
+   "humidity": 60,
+   "pressure": 1019
+  },
+  "IARGYR9": {
+   "obsTime": 1789839074,
+   "temp": 26.1,
+   "dewpt": 14.6,
+   "humidity": 49,
+   "pressure": 1040.6
+  },
   "IARGYR10": {
-   "obsTime": 1789838925,
-   "temp": 26.4,
-   "dewpt": 14,
-   "humidity": 47,
+   "obsTime": 1789839055,
+   "temp": 26.3,
+   "dewpt": 14.3,
+   "humidity": 48,
    "pressure": 1025.4
   },
   "IALIMO16": {
-   "obsTime": 1789838966,
+   "obsTime": 1789839074,
    "temp": 26.2,
    "dewpt": 14.6,
    "humidity": 49,
    "pressure": 1018.6
   },
   "IMARAT19": {
-   "obsTime": 1789838970,
+   "obsTime": 1789839090,
    "temp": 23.8,
    "dewpt": 14.5,
    "humidity": 56,
    "pressure": 1021
   },
   "IMARAT16": {
-   "obsTime": 1789838400,
-   "temp": 21.9,
-   "dewpt": 9.8,
-   "humidity": 46,
-   "pressure": 1020.3
+   "obsTime": 1789839000,
+   "temp": 21.8,
+   "dewpt": 9.9,
+   "humidity": 47,
+   "pressure": 1020.7
   }
  }
 }
