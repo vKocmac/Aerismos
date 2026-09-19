@@ -1,54 +1,61 @@
 {
- "fetched": "2026-09-19T06:31:34.634Z",
+ "fetched": "2026-09-19T06:33:21.694Z",
  "stations": {
-  "IARGYR9": {
-   "obsTime": 1789799405,
-   "temp": 26.4,
-   "dewpt": 13.2,
-   "humidity": 44,
-   "pressure": 1040
-  },
-  "IALIMO14": {
-   "obsTime": 1789799425,
-   "temp": 27.6,
-   "dewpt": 12.8,
-   "humidity": 40,
-   "pressure": 1008.5
-  },
   "IARGYR7": {
-   "obsTime": 1789799482,
-   "temp": 26.9,
-   "dewpt": 12.6,
-   "humidity": 41,
+   "obsTime": 1789799579,
+   "temp": 26.2,
+   "dewpt": 12.2,
+   "humidity": 42,
    "pressure": 1023.7
   },
+  "IARGYR9": {
+   "obsTime": 1789799576,
+   "temp": 26.7,
+   "dewpt": 13.1,
+   "humidity": 43,
+   "pressure": 1040
+  },
   "IALIMO16": {
-   "obsTime": 1789799478,
-   "temp": 26.5,
-   "dewpt": 11.4,
-   "humidity": 39,
+   "obsTime": 1789799576,
+   "temp": 26.6,
+   "dewpt": 11.1,
+   "humidity": 38,
    "pressure": 1017.6
   },
-  "IILIOU4": {
-   "obsTime": 1789799488,
-   "temp": 25.8,
-   "dewpt": 11.6,
-   "humidity": 41,
-   "pressure": 1013.9
-  },
   "IMARAT19": {
-   "obsTime": 1789799479,
-   "temp": 25.5,
+   "obsTime": 1789799587,
+   "temp": 25.6,
    "dewpt": 15.3,
    "humidity": 53,
    "pressure": 1020
   },
+  "IARGYR10": {
+   "obsTime": 1789799515,
+   "temp": 26.9,
+   "dewpt": 12.9,
+   "humidity": 42,
+   "pressure": 1024.7
+  },
   "IMARAT24": {
-   "obsTime": 1789799478,
-   "temp": 26,
-   "dewpt": 15.4,
+   "obsTime": 1789799586,
+   "temp": 26.1,
+   "dewpt": 15.5,
    "humidity": 52,
    "pressure": 1017.9
+  },
+  "IALIMO14": {
+   "obsTime": 1789799545,
+   "temp": 27,
+   "dewpt": 12.6,
+   "humidity": 41,
+   "pressure": 1008.5
+  },
+  "IILIOU4": {
+   "obsTime": 1789799584,
+   "temp": 26,
+   "dewpt": 11.8,
+   "humidity": 41,
+   "pressure": 1014.2
   },
   "IMARAT16": {
    "obsTime": 1789799400,
@@ -56,13 +63,6 @@
    "dewpt": 15.7,
    "humidity": 55,
    "pressure": 1019.6
-  },
-  "IARGYR10": {
-   "obsTime": 1789799450,
-   "temp": 27,
-   "dewpt": 13,
-   "humidity": 42,
-   "pressure": 1024.7
   }
  }
 }
