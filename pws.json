@@ -1,67 +1,67 @@
 {
- "fetched": "2026-09-21T10:46:33.545Z",
+ "fetched": "2026-09-21T11:01:37.234Z",
  "stations": {
+  "IARGYR7": {
+   "obsTime": 1789988486,
+   "temp": 29.2,
+   "dewpt": 13.8,
+   "humidity": 39,
+   "pressure": 1020.7
+  },
   "IALIMO16": {
-   "obsTime": 1789987583,
-   "temp": 28.8,
-   "dewpt": 14.3,
-   "humidity": 41,
+   "obsTime": 1789988483,
+   "temp": 29.2,
+   "dewpt": 15.6,
+   "humidity": 44,
    "pressure": 1014.6
   },
   "IARGYR9": {
-   "obsTime": 1789987585,
-   "temp": 30.3,
-   "dewpt": 15.1,
-   "humidity": 40,
+   "obsTime": 1789988431,
+   "temp": 31,
+   "dewpt": 14.8,
+   "humidity": 38,
    "pressure": 1036.9
   },
   "IALIMO14": {
-   "obsTime": 1789987525,
+   "obsTime": 1789988482,
    "temp": 29.9,
-   "dewpt": 16.7,
-   "humidity": 45,
-   "pressure": 1005.4
+   "dewpt": 15.9,
+   "humidity": 43,
+   "pressure": 1005.1
   },
   "IARGYR10": {
-   "obsTime": 1789987532,
-   "temp": 31.1,
-   "dewpt": 15.5,
-   "humidity": 39,
-   "pressure": 1022
-  },
-  "IARGYR7": {
-   "obsTime": 1789987583,
-   "temp": 29.9,
-   "dewpt": 14.5,
+   "obsTime": 1789988447,
+   "temp": 30.5,
+   "dewpt": 14.8,
    "humidity": 39,
    "pressure": 1021
   },
   "IILIOU4": {
-   "obsTime": 1789987580,
-   "temp": 29.5,
-   "dewpt": 14.1,
+   "obsTime": 1789988476,
+   "temp": 29.6,
+   "dewpt": 14.2,
    "humidity": 39,
    "pressure": 1011.2
   },
   "IMARAT24": {
-   "obsTime": 1789987578,
-   "temp": 30.2,
-   "dewpt": 18,
-   "humidity": 48,
+   "obsTime": 1789988490,
+   "temp": 30.7,
+   "dewpt": 17.7,
+   "humidity": 46,
    "pressure": 1013.9
   },
   "IMARAT16": {
-   "obsTime": 1789987200,
-   "temp": 29.1,
-   "dewpt": 18.5,
-   "humidity": 53,
-   "pressure": 1016.6
+   "obsTime": 1789988400,
+   "temp": 29.8,
+   "dewpt": 18.3,
+   "humidity": 50,
+   "pressure": 1016.3
   },
   "IMARAT19": {
-   "obsTime": 1789987578,
-   "temp": 29.4,
-   "dewpt": 16.5,
-   "humidity": 46,
+   "obsTime": 1789988490,
+   "temp": 29.2,
+   "dewpt": 17,
+   "humidity": 48,
    "pressure": 1016.9
   }
  }
