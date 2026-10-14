@@ -1,60 +1,60 @@
 {
- "fetched": "2026-10-14T17:46:16.978Z",
+ "fetched": "2026-10-14T18:01:52.875Z",
  "stations": {
-  "IARGYR7": {
-   "obsTime": 1791999946,
-   "temp": 15.2,
-   "dewpt": 10.8,
-   "humidity": 75,
-   "pressure": 1022
-  },
-  "IARGYR9": {
-   "obsTime": 1791999939,
-   "temp": 15.6,
-   "dewpt": 11.1,
-   "humidity": 75,
-   "pressure": 1008.5
-  },
-  "IILIOU4": {
-   "obsTime": 1791999945,
-   "temp": 15.4,
-   "dewpt": 10.6,
-   "humidity": 73,
-   "pressure": 1011.9
-  },
-  "IMARAT24": {
-   "obsTime": 1791999954,
-   "temp": 15.1,
-   "dewpt": 12.2,
-   "humidity": 83,
-   "pressure": 1006.1
-  },
-  "IARGYR10": {
-   "obsTime": 1791999953,
-   "temp": 15.4,
-   "dewpt": 10.8,
-   "humidity": 75,
-   "pressure": 1022.4
-  },
   "IALIMO16": {
-   "obsTime": 1791999964,
-   "temp": 15.7,
-   "dewpt": 10.7,
-   "humidity": 73,
+   "obsTime": 1792000888,
+   "temp": 15.2,
+   "dewpt": 11.1,
+   "humidity": 77,
    "pressure": 1007.8
   },
-  "IMARAT19": {
-   "obsTime": 1791999966,
-   "temp": 15.2,
-   "dewpt": 12.4,
-   "humidity": 84,
-   "pressure": 1017.9
+  "IARGYR7": {
+   "obsTime": 1792000891,
+   "temp": 14.9,
+   "dewpt": 10.9,
+   "humidity": 77,
+   "pressure": 1022
+  },
+  "IILIOU4": {
+   "obsTime": 1792000895,
+   "temp": 15,
+   "dewpt": 10.6,
+   "humidity": 75,
+   "pressure": 1012.2
+  },
+  "IMARAT24": {
+   "obsTime": 1792000890,
+   "temp": 15.1,
+   "dewpt": 12,
+   "humidity": 82,
+   "pressure": 1006.1
+  },
+  "IARGYR9": {
+   "obsTime": 1792000871,
+   "temp": 15.1,
+   "dewpt": 11.2,
+   "humidity": 78,
+   "pressure": 1008.8
+  },
+  "IARGYR10": {
+   "obsTime": 1792000879,
+   "temp": 15,
+   "dewpt": 11.1,
+   "humidity": 78,
+   "pressure": 1022.4
   },
   "IMARAT16": {
-   "obsTime": 1791999600,
+   "obsTime": 1792000800,
    "temp": 14.9,
-   "dewpt": -6.1,
-   "humidity": 23,
+   "dewpt": -2.1,
+   "humidity": 31,
+   "pressure": 1017.9
+  },
+  "IMARAT19": {
+   "obsTime": 1792000902,
+   "temp": 14.9,
+   "dewpt": 12.1,
+   "humidity": 84,
    "pressure": 1017.9
   }
  }
