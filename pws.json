@@ -1,61 +1,61 @@
 {
- "fetched": "2026-10-14T01:31:10.001Z",
+ "fetched": "2026-10-14T01:45:55.972Z",
  "stations": {
-  "IALIMO16": {
-   "obsTime": 1791941444,
-   "temp": 13.5,
-   "dewpt": 10.6,
-   "humidity": 83,
-   "pressure": 997.6
-  },
-  "IARGYR9": {
-   "obsTime": 1791941435,
-   "temp": 13.6,
-   "dewpt": 10.9,
-   "humidity": 84,
-   "pressure": 999
-  },
-  "IILIOU4": {
-   "obsTime": 1791941450,
-   "temp": 13.4,
-   "dewpt": 10.2,
-   "humidity": 81,
-   "pressure": 1002.4
-  },
-  "IMARAT24": {
-   "obsTime": 1791941454,
-   "temp": 14.7,
-   "dewpt": 11.6,
-   "humidity": 82,
-   "pressure": 993.9
-  },
-  "IARGYR10": {
-   "obsTime": 1791941422,
-   "temp": 13.4,
-   "dewpt": 10.8,
-   "humidity": 84,
-   "pressure": 1012.5
-  },
-  "IMARAT19": {
-   "obsTime": 1791941454,
-   "temp": 14.7,
-   "dewpt": 11.9,
-   "humidity": 84,
-   "pressure": 1006.1
-  },
   "IARGYR7": {
-   "obsTime": 1791941456,
+   "obsTime": 1791942332,
    "temp": 13.1,
    "dewpt": 10.3,
    "humidity": 83,
-   "pressure": 1012.2
+   "pressure": 1011.9
+  },
+  "IARGYR9": {
+   "obsTime": 1791942284,
+   "temp": 13.6,
+   "dewpt": 10.6,
+   "humidity": 82,
+   "pressure": 999
+  },
+  "IARGYR10": {
+   "obsTime": 1791942338,
+   "temp": 13.4,
+   "dewpt": 10.4,
+   "humidity": 82,
+   "pressure": 1012.5
+  },
+  "IALIMO16": {
+   "obsTime": 1791942333,
+   "temp": 13.5,
+   "dewpt": 10.3,
+   "humidity": 82,
+   "pressure": 997.6
+  },
+  "IILIOU4": {
+   "obsTime": 1791942336,
+   "temp": 13.4,
+   "dewpt": 10,
+   "humidity": 80,
+   "pressure": 1002.4
+  },
+  "IMARAT24": {
+   "obsTime": 1791942342,
+   "temp": 14.6,
+   "dewpt": 11.7,
+   "humidity": 83,
+   "pressure": 993.9
+  },
+  "IMARAT19": {
+   "obsTime": 1791942343,
+   "temp": 14.2,
+   "dewpt": 12.1,
+   "humidity": 87,
+   "pressure": 1005.1
   },
   "IMARAT16": {
-   "obsTime": 1791941400,
-   "temp": 14.4,
-   "dewpt": -20.9,
-   "humidity": 7,
-   "pressure": 1005.4
+   "obsTime": 1791942000,
+   "temp": 14.3,
+   "dewpt": -22.8,
+   "humidity": 6,
+   "pressure": 1005.1
   }
  }
 }
