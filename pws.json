@@ -1,61 +1,61 @@
 {
- "fetched": "2026-10-14T03:01:05.007Z",
+ "fetched": "2026-10-14T03:15:54.765Z",
  "stations": {
-  "IARGYR9": {
-   "obsTime": 1791946789,
-   "temp": 13.6,
-   "dewpt": 10.6,
-   "humidity": 82,
-   "pressure": 998.3
-  },
-  "IALIMO16": {
-   "obsTime": 1791946835,
+  "IARGYR10": {
+   "obsTime": 1791947707,
    "temp": 13.6,
    "dewpt": 10.4,
-   "humidity": 82,
-   "pressure": 997.6
-  },
-  "IILIOU4": {
-   "obsTime": 1791946842,
-   "temp": 13.6,
-   "dewpt": 10,
-   "humidity": 79,
-   "pressure": 1001.4
-  },
-  "IMARAT24": {
-   "obsTime": 1791946842,
-   "temp": 15.7,
-   "dewpt": 12,
-   "humidity": 79,
-   "pressure": 992.9
-  },
-  "IARGYR7": {
-   "obsTime": 1791946845,
-   "temp": 13.2,
-   "dewpt": 9.7,
-   "humidity": 80,
-   "pressure": 1011.5
-  },
-  "IARGYR10": {
-   "obsTime": 1791946792,
-   "temp": 13.6,
-   "dewpt": 10.5,
-   "humidity": 82,
+   "humidity": 81,
    "pressure": 1011.9
   },
-  "IMARAT16": {
-   "obsTime": 1791946800,
-   "temp": 15.5,
-   "dewpt": -3.4,
-   "humidity": 27,
-   "pressure": 1005.4
+  "IARGYR7": {
+   "obsTime": 1791947733,
+   "temp": 13.6,
+   "dewpt": 10.1,
+   "humidity": 80,
+   "pressure": 1011.2
+  },
+  "IARGYR9": {
+   "obsTime": 1791947722,
+   "temp": 14,
+   "dewpt": 10.7,
+   "humidity": 81,
+   "pressure": 998
+  },
+  "IALIMO16": {
+   "obsTime": 1791947736,
+   "temp": 13.8,
+   "dewpt": 10.5,
+   "humidity": 81,
+   "pressure": 997.6
+  },
+  "IMARAT24": {
+   "obsTime": 1791947730,
+   "temp": 15.9,
+   "dewpt": 12.4,
+   "humidity": 80,
+   "pressure": 993.9
+  },
+  "IILIOU4": {
+   "obsTime": 1791947738,
+   "temp": 13.7,
+   "dewpt": 10,
+   "humidity": 78,
+   "pressure": 1001.7
   },
   "IMARAT19": {
-   "obsTime": 1791946854,
-   "temp": 15.8,
-   "dewpt": 12.6,
-   "humidity": 82,
+   "obsTime": 1791947730,
+   "temp": 15.5,
+   "dewpt": 12.7,
+   "humidity": 83,
    "pressure": 1006.1
+  },
+  "IMARAT16": {
+   "obsTime": 1791947400,
+   "temp": 15.6,
+   "dewpt": 0.2,
+   "humidity": 35,
+   "pressure": 1005.4
   }
  }
 }
