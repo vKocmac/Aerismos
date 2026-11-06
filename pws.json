@@ -1,33 +1,54 @@
 {
- "fetched": "2026-11-06T14:01:24.011Z",
+ "fetched": "2026-11-06T14:16:15.014Z",
  "stations": {
   "IALIMO14": {
-   "obsTime": 1793973610,
-   "temp": 15.5,
-   "dewpt": 6.5,
+   "obsTime": 1793974510,
+   "temp": 15.3,
+   "dewpt": 6.3,
    "humidity": 55,
    "pressure": 1008.8
   },
   "IALIMO16": {
-   "obsTime": 1793973637,
-   "temp": 15.7,
-   "dewpt": 6.1,
-   "humidity": 53,
+   "obsTime": 1793974526,
+   "temp": 15.1,
+   "dewpt": 6,
+   "humidity": 55,
    "pressure": 1009.8
   },
+  "IARGYR9": {
+   "obsTime": 1793974390,
+   "temp": 15.9,
+   "dewpt": 6.4,
+   "humidity": 53,
+   "pressure": 1011.2
+  },
+  "IARGYR7": {
+   "obsTime": 1793974545,
+   "temp": 14.5,
+   "dewpt": 5.8,
+   "humidity": 56,
+   "pressure": 1024.4
+  },
+  "IILIOU4": {
+   "obsTime": 1793974538,
+   "temp": 15.5,
+   "dewpt": 5.4,
+   "humidity": 51,
+   "pressure": 1012.9
+  },
+  "IMARAT19": {
+   "obsTime": 1793974542,
+   "temp": 14.3,
+   "dewpt": 7.9,
+   "humidity": 66,
+   "pressure": 1021
+  },
   "IMARAT16": {
-   "obsTime": 1793973600,
+   "obsTime": 1793974200,
    "temp": 13.8,
    "dewpt": 8.2,
    "humidity": 69,
    "pressure": 1020.7
-  },
-  "IMARAT19": {
-   "obsTime": 1793973666,
-   "temp": 14.7,
-   "dewpt": 7.9,
-   "humidity": 64,
-   "pressure": 1021
   }
  }
 }
