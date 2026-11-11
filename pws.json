@@ -1,67 +1,60 @@
 {
- "fetched": "2026-11-11T18:46:23.623Z",
+ "fetched": "2026-11-11T19:01:17.292Z",
  "stations": {
-  "IARGYR7": {
-   "obsTime": 1794422756,
-   "temp": 18.3,
-   "dewpt": 15.1,
-   "humidity": 82,
-   "pressure": 1021.7
-  },
-  "IARGYR10": {
-   "obsTime": 1794422754,
-   "temp": 18.3,
-   "dewpt": 15.6,
-   "humidity": 84,
-   "pressure": 1022.7
-  },
-  "IALIMO14": {
-   "obsTime": 1794422710,
-   "temp": 18.1,
-   "dewpt": 15.6,
-   "humidity": 85,
-   "pressure": 1006.4
+  "IARGYR9": {
+   "obsTime": 1794423580,
+   "temp": 17.5,
+   "dewpt": 15.7,
+   "humidity": 89,
+   "pressure": 1008.8
   },
   "IALIMO16": {
-   "obsTime": 1794422754,
+   "obsTime": 1794423654,
    "temp": 17.7,
    "dewpt": 15.9,
    "humidity": 89,
    "pressure": 1007.8
   },
-  "IARGYR9": {
-   "obsTime": 1794422645,
-   "temp": 17.8,
-   "dewpt": 16.1,
-   "humidity": 90,
-   "pressure": 1008.8
+  "IARGYR7": {
+   "obsTime": 1794423658,
+   "temp": 18.2,
+   "dewpt": 15,
+   "humidity": 82,
+   "pressure": 1022
   },
-  "IILIOU4": {
-   "obsTime": 1794422768,
-   "temp": 18,
-   "dewpt": 14.7,
-   "humidity": 81,
-   "pressure": 1010.5
+  "IARGYR10": {
+   "obsTime": 1794423613,
+   "temp": 18.1,
+   "dewpt": 15.4,
+   "humidity": 84,
+   "pressure": 1022.7
   },
   "IMARAT24": {
-   "obsTime": 1794422778,
-   "temp": 17.7,
-   "dewpt": 15.5,
-   "humidity": 87,
+   "obsTime": 1794423666,
+   "temp": 17.2,
+   "dewpt": 15.4,
+   "humidity": 89,
    "pressure": 1005.1
   },
+  "IILIOU4": {
+   "obsTime": 1794423664,
+   "temp": 17.8,
+   "dewpt": 14.5,
+   "humidity": 81,
+   "pressure": 1010.2
+  },
   "IMARAT19": {
-   "obsTime": 1794422767,
-   "temp": 17.5,
-   "dewpt": 15.4,
-   "humidity": 87,
+   "obsTime": 1794423667,
+   "temp": 18,
+   "dewpt": 15.6,
+   "humidity": 86,
    "pressure": 1016.9
   },
   "IMARAT16": {
-   "obsTime": 1794422400,
-   "temp": 17.9,
-   "dewpt": -1.8,
-   "humidity": 26,
+   "obsTime": 1794423600,
+   "temp": 17.3,
+   "dewpt": -20.6,
+   "humidity": 6,
    "pressure": 1016.9
   }
  }
