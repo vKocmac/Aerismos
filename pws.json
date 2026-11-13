@@ -1,68 +1,68 @@
 {
- "fetched": "2026-11-13T17:31:53.977Z",
+ "fetched": "2026-11-13T17:47:07.973Z",
  "stations": {
-  "IARGYR9": {
-   "obsTime": 1794590954,
-   "temp": 20.5,
-   "dewpt": 16.5,
-   "humidity": 78,
-   "pressure": 1006.4
-  },
-  "IALIMO16": {
-   "obsTime": 1794591090,
-   "temp": 20.5,
-   "dewpt": 16.3,
-   "humidity": 77,
-   "pressure": 1005.8
+  "IARGYR10": {
+   "obsTime": 1794591980,
+   "temp": 20.6,
+   "dewpt": 16.1,
+   "humidity": 76,
+   "pressure": 1020.3
   },
   "IALIMO14": {
-   "obsTime": 1794591068,
+   "obsTime": 1794591968,
    "temp": 20.2,
    "dewpt": 16.4,
    "humidity": 79,
    "pressure": 1004.4
   },
+  "IARGYR9": {
+   "obsTime": 1794591886,
+   "temp": 20.6,
+   "dewpt": 16.4,
+   "humidity": 77,
+   "pressure": 1006.4
+  },
+  "IALIMO16": {
+   "obsTime": 1794592002,
+   "temp": 20.5,
+   "dewpt": 16.3,
+   "humidity": 77,
+   "pressure": 1005.8
+  },
   "IARGYR7": {
-   "obsTime": 1794591091,
+   "obsTime": 1794592003,
    "temp": 20.3,
    "dewpt": 15.9,
    "humidity": 76,
-   "pressure": 1020.3
-  },
-  "IARGYR10": {
-   "obsTime": 1794591061,
-   "temp": 20.5,
-   "dewpt": 16.1,
-   "humidity": 76,
-   "pressure": 1020.3
+   "pressure": 1020
   },
   "IILIOU4": {
-   "obsTime": 1794591099,
+   "obsTime": 1794592011,
    "temp": 20.5,
    "dewpt": 15.5,
    "humidity": 73,
    "pressure": 1008.5
   },
   "IMARAT24": {
-   "obsTime": 1794591102,
-   "temp": 21,
-   "dewpt": 16.9,
-   "humidity": 78,
+   "obsTime": 1794592014,
+   "temp": 20.9,
+   "dewpt": 17.1,
+   "humidity": 79,
    "pressure": 1003
   },
-  "IMARAT19": {
-   "obsTime": 1794591102,
-   "temp": 20.9,
-   "dewpt": 16.8,
-   "humidity": 78,
+  "IMARAT16": {
+   "obsTime": 1794591600,
+   "temp": 20.8,
+   "dewpt": 14.2,
+   "humidity": 66,
    "pressure": 1014.9
   },
-  "IMARAT16": {
-   "obsTime": 1794591000,
+  "IMARAT19": {
+   "obsTime": 1794592014,
    "temp": 20.8,
-   "dewpt": 14.5,
-   "humidity": 67,
-   "pressure": 1014.6
+   "dewpt": 16.7,
+   "humidity": 78,
+   "pressure": 1014.9
   }
  }
 }
