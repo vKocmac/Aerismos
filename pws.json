@@ -1,67 +1,67 @@
 {
- "fetched": "2026-11-15T20:01:27.112Z",
+ "fetched": "2026-11-15T20:16:21.473Z",
  "stations": {
-  "IALIMO14": {
-   "obsTime": 1794772807,
-   "temp": 15.9,
-   "dewpt": 12.6,
-   "humidity": 81,
-   "pressure": 1012.9
-  },
   "IARGYR7": {
-   "obsTime": 1794772844,
-   "temp": 15.9,
-   "dewpt": 12.2,
+   "obsTime": 1794773744,
+   "temp": 16,
+   "dewpt": 12.3,
    "humidity": 79,
-   "pressure": 1028.1
-  },
-  "IARGYR10": {
-   "obsTime": 1794772783,
-   "temp": 16.1,
-   "dewpt": 12.6,
-   "humidity": 80,
    "pressure": 1028.4
   },
-  "IALIMO16": {
-   "obsTime": 1794772846,
+  "IARGYR10": {
+   "obsTime": 1794773707,
    "temp": 16.2,
-   "dewpt": 12.5,
+   "dewpt": 12.8,
+   "humidity": 80,
+   "pressure": 1028.8
+  },
+  "IALIMO16": {
+   "obsTime": 1794773735,
+   "temp": 16.3,
+   "dewpt": 12.6,
    "humidity": 79,
    "pressure": 1013.5
   },
-  "IARGYR9": {
-   "obsTime": 1794772723,
-   "temp": 16.1,
-   "dewpt": 12.9,
+  "IALIMO14": {
+   "obsTime": 1794773707,
+   "temp": 15.9,
+   "dewpt": 12.7,
    "humidity": 81,
-   "pressure": 1014.6
+   "pressure": 1013.2
+  },
+  "IARGYR9": {
+   "obsTime": 1794773663,
+   "temp": 16.4,
+   "dewpt": 12.9,
+   "humidity": 80,
+   "pressure": 1015.2
   },
   "IILIOU4": {
-   "obsTime": 1794772872,
-   "temp": 16.1,
-   "dewpt": 12.1,
+   "obsTime": 1794773752,
+   "temp": 16.2,
+   "dewpt": 12.2,
    "humidity": 77,
-   "pressure": 1016.6
+   "pressure": 1016.9
   },
   "IMARAT24": {
-   "obsTime": 1794772854,
-   "temp": 15.8,
-   "dewpt": 12.9,
-   "humidity": 83,
+   "obsTime": 1794773754,
+   "temp": 15.9,
+   "dewpt": 12.7,
+   "humidity": 82,
    "pressure": 1012.9
   },
   "IMARAT19": {
-   "obsTime": 1794772866,
-   "temp": 16,
-   "dewpt": 12.8,
+   "obsTime": 1794773754,
+   "temp": 15.9,
+   "dewpt": 12.7,
    "humidity": 82,
    "pressure": 1025.1
   },
   "IMARAT16": {
-   "obsTime": 1794772800,
+   "obsTime": 1794773400,
    "temp": 15.7,
-   "dewpt": 3.4,
-   "humidity": 44,
+   "dewpt": 3.8,
+   "humidity": 45,
    "pressure": 1024.4
   }
  }
