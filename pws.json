@@ -1,66 +1,66 @@
 {
- "fetched": "2026-11-16T20:16:34.405Z",
+ "fetched": "2026-11-16T20:31:34.741Z",
  "stations": {
+  "IARGYR9": {
+   "obsTime": 1794861006,
+   "temp": 17.8,
+   "dewpt": 15,
+   "humidity": 84,
+   "pressure": 1008.1
+  },
+  "IALIMO16": {
+   "obsTime": 1794861065,
+   "temp": 17.6,
+   "dewpt": 14.7,
+   "humidity": 84,
+   "pressure": 1006.8
+  },
   "IARGYR7": {
-   "obsTime": 1794860167,
+   "obsTime": 1794861066,
    "temp": 18.2,
    "dewpt": 14.5,
    "humidity": 79,
-   "pressure": 1021.7
-  },
-  "IARGYR9": {
-   "obsTime": 1794860071,
-   "temp": 17.6,
-   "dewpt": 14.8,
-   "humidity": 84,
-   "pressure": 1008.5
-  },
-  "IALIMO16": {
-   "obsTime": 1794860165,
-   "temp": 17.7,
-   "dewpt": 15.1,
-   "humidity": 85,
-   "pressure": 1006.8
-  },
-  "IARGYR10": {
-   "obsTime": 1794860142,
-   "temp": 18.3,
-   "dewpt": 14.8,
-   "humidity": 81,
-   "pressure": 1022.4
+   "pressure": 1021.3
   },
   "IALIMO14": {
-   "obsTime": 1794860167,
+   "obsTime": 1794861067,
    "temp": 17.4,
-   "dewpt": 15,
+   "dewpt": 15.1,
    "humidity": 86,
-   "pressure": 1005.8
+   "pressure": 1006.1
+  },
+  "IARGYR10": {
+   "obsTime": 1794861063,
+   "temp": 18.5,
+   "dewpt": 14.8,
+   "humidity": 80,
+   "pressure": 1022
   },
   "IILIOU4": {
-   "obsTime": 1794860181,
-   "temp": 18,
+   "obsTime": 1794861077,
+   "temp": 18.2,
    "dewpt": 14.3,
-   "humidity": 79,
+   "humidity": 78,
    "pressure": 1009.8
   },
-  "IMARAT19": {
-   "obsTime": 1794860178,
-   "temp": 15.7,
-   "dewpt": 14.7,
-   "humidity": 94,
-   "pressure": 1016.9
-  },
   "IMARAT24": {
-   "obsTime": 1794860179,
-   "temp": 16.2,
-   "dewpt": 15.1,
+   "obsTime": 1794861079,
+   "temp": 16,
+   "dewpt": 14.9,
    "humidity": 93,
    "pressure": 1005.1
   },
+  "IMARAT19": {
+   "obsTime": 1794861078,
+   "temp": 15.6,
+   "dewpt": 14.6,
+   "humidity": 94,
+   "pressure": 1016.9
+  },
   "IMARAT16": {
-   "obsTime": 1794859800,
-   "temp": 16.8,
-   "dewpt": -39.7,
+   "obsTime": 1794861000,
+   "temp": 16.4,
+   "dewpt": -39.9,
    "humidity": 1,
    "pressure": 1016.9
   }
