@@ -1,67 +1,67 @@
 {
- "fetched": "2026-11-18T22:31:11.471Z",
+ "fetched": "2026-11-18T22:46:07.867Z",
  "stations": {
-  "IALIMO16": {
-   "obsTime": 1795041037,
-   "temp": 18.9,
-   "dewpt": 15.1,
-   "humidity": 79,
-   "pressure": 998.6
-  },
-  "IARGYR10": {
-   "obsTime": 1795041026,
-   "temp": 19.2,
-   "dewpt": 14.8,
-   "humidity": 76,
-   "pressure": 1013.2
-  },
   "IARGYR9": {
-   "obsTime": 1795040954,
-   "temp": 19.1,
-   "dewpt": 15,
+   "obsTime": 1795041802,
+   "temp": 18.8,
+   "dewpt": 14.7,
    "humidity": 78,
    "pressure": 999.7
   },
   "IALIMO14": {
-   "obsTime": 1795041007,
-   "temp": 19,
-   "dewpt": 15.3,
-   "humidity": 79,
+   "obsTime": 1795041907,
+   "temp": 19.2,
+   "dewpt": 15.1,
+   "humidity": 77,
    "pressure": 997.3
   },
+  "IARGYR10": {
+   "obsTime": 1795041942,
+   "temp": 19.2,
+   "dewpt": 14.7,
+   "humidity": 75,
+   "pressure": 1013.2
+  },
   "IARGYR7": {
-   "obsTime": 1795041040,
-   "temp": 19.5,
-   "dewpt": 14.4,
-   "humidity": 72,
-   "pressure": 1012.5
+   "obsTime": 1795041940,
+   "temp": 19.7,
+   "dewpt": 14.3,
+   "humidity": 71,
+   "pressure": 1012.9
+  },
+  "IALIMO16": {
+   "obsTime": 1795041938,
+   "temp": 18.8,
+   "dewpt": 14.8,
+   "humidity": 78,
+   "pressure": 997.6
   },
   "IILIOU4": {
-   "obsTime": 1795041057,
+   "obsTime": 1795041953,
    "temp": 18.8,
    "dewpt": 14.3,
    "humidity": 75,
    "pressure": 1001
   },
   "IMARAT24": {
-   "obsTime": 1795041042,
-   "temp": 18,
-   "dewpt": 14,
-   "humidity": 78,
+   "obsTime": 1795041954,
+   "temp": 19.1,
+   "dewpt": 14.3,
+   "humidity": 74,
    "pressure": 994.9
   },
   "IMARAT19": {
-   "obsTime": 1795041055,
-   "temp": 19.7,
-   "dewpt": 14.6,
-   "humidity": 73,
+   "obsTime": 1795041954,
+   "temp": 20.3,
+   "dewpt": 14.8,
+   "humidity": 71,
    "pressure": 1006.8
   },
   "IMARAT16": {
-   "obsTime": 1795041000,
-   "temp": 18.1,
-   "dewpt": 5,
-   "humidity": 42,
+   "obsTime": 1795041600,
+   "temp": 18.7,
+   "dewpt": 10,
+   "humidity": 57,
    "pressure": 1007.1
   }
  }
