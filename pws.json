@@ -1,67 +1,67 @@
 {
- "fetched": "2026-11-21T20:31:09.246Z",
+ "fetched": "2026-11-21T20:46:03.348Z",
  "stations": {
-  "IALIMO14": {
-   "obsTime": 1795293005,
-   "temp": 17.6,
-   "dewpt": 9.5,
-   "humidity": 59,
-   "pressure": 1007.8
+  "IARGYR10": {
+   "obsTime": 1795293914,
+   "temp": 18.1,
+   "dewpt": 9.4,
+   "humidity": 57,
+   "pressure": 1023.7
   },
   "IARGYR7": {
-   "obsTime": 1795293040,
+   "obsTime": 1795293940,
    "temp": 17.9,
    "dewpt": 8.9,
    "humidity": 56,
    "pressure": 1023.4
   },
+  "IALIMO14": {
+   "obsTime": 1795293905,
+   "temp": 17.8,
+   "dewpt": 9.7,
+   "humidity": 59,
+   "pressure": 1008.1
+  },
   "IALIMO16": {
-   "obsTime": 1795293039,
+   "obsTime": 1795293940,
    "temp": 18,
    "dewpt": 9.2,
    "humidity": 57,
-   "pressure": 1008.8
-  },
-  "IARGYR9": {
-   "obsTime": 1795292916,
-   "temp": 18,
-   "dewpt": 9.3,
-   "humidity": 57,
    "pressure": 1009.8
   },
-  "IARGYR10": {
-   "obsTime": 1795292998,
-   "temp": 18,
-   "dewpt": 9.3,
-   "humidity": 57,
-   "pressure": 1023.7
+  "IARGYR9": {
+   "obsTime": 1795293862,
+   "temp": 18.1,
+   "dewpt": 9.6,
+   "humidity": 58,
+   "pressure": 1009.8
   },
-  "IMARAT24": {
-   "obsTime": 1795293054,
-   "temp": 16,
-   "dewpt": 9.4,
-   "humidity": 65,
-   "pressure": 1006.8
+  "IILIOU4": {
+   "obsTime": 1795293948,
+   "temp": 18,
+   "dewpt": 8.6,
+   "humidity": 54,
+   "pressure": 1012.2
   },
   "IMARAT19": {
-   "obsTime": 1795293054,
-   "temp": 18.1,
-   "dewpt": 9.4,
+   "obsTime": 1795293954,
+   "temp": 18,
+   "dewpt": 9.3,
    "humidity": 57,
    "pressure": 1019
   },
-  "IILIOU4": {
-   "obsTime": 1795293052,
-   "temp": 17.8,
+  "IMARAT24": {
+   "obsTime": 1795293954,
+   "temp": 17.9,
    "dewpt": 8.4,
    "humidity": 54,
-   "pressure": 1011.9
+   "pressure": 1006.8
   },
   "IMARAT16": {
-   "obsTime": 1795293000,
-   "temp": 15.9,
-   "dewpt": 10.1,
-   "humidity": 68,
+   "obsTime": 1795293600,
+   "temp": 16.8,
+   "dewpt": 10.2,
+   "humidity": 65,
    "pressure": 1018.6
   }
  }
