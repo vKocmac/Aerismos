@@ -1,66 +1,66 @@
 {
- "fetched": "2026-11-24T06:31:44.395Z",
+ "fetched": "2026-11-24T06:46:34.601Z",
  "stations": {
-  "IALIMO16": {
-   "obsTime": 1795501852,
-   "temp": 16.9,
-   "dewpt": 8.7,
+  "IALIMO14": {
+   "obsTime": 1795502764,
+   "temp": 17.1,
+   "dewpt": 9.3,
+   "humidity": 60,
+   "pressure": 1009.1
+  },
+  "IARGYR10": {
+   "obsTime": 1795502756,
+   "temp": 17.5,
+   "dewpt": 9.4,
    "humidity": 59,
+   "pressure": 1025.1
+  },
+  "IALIMO16": {
+   "obsTime": 1795502765,
+   "temp": 17.9,
+   "dewpt": 8.6,
+   "humidity": 55,
    "pressure": 1009.8
   },
-  "IARGYR9": {
-   "obsTime": 1795501744,
-   "temp": 15.9,
+  "IARGYR7": {
+   "obsTime": 1795502769,
+   "temp": 17.8,
    "dewpt": 9.4,
+   "humidity": 58,
+   "pressure": 1024
+  },
+  "IARGYR9": {
+   "obsTime": 1795502684,
+   "temp": 16.4,
+   "dewpt": 9.7,
    "humidity": 65,
    "pressure": 1011.2
   },
-  "IALIMO14": {
-   "obsTime": 1795501804,
-   "temp": 16.2,
-   "dewpt": 9.1,
-   "humidity": 63,
-   "pressure": 1008.8
-  },
-  "IARGYR10": {
-   "obsTime": 1795501837,
-   "temp": 16.9,
-   "dewpt": 9.4,
-   "humidity": 61,
-   "pressure": 1025.1
-  },
-  "IARGYR7": {
-   "obsTime": 1795501869,
-   "temp": 17.4,
-   "dewpt": 9.2,
-   "humidity": 59,
-   "pressure": 1024.4
-  },
   "IILIOU4": {
-   "obsTime": 1795501877,
-   "temp": 15.6,
+   "obsTime": 1795502773,
+   "temp": 16.6,
    "dewpt": 8.6,
-   "humidity": 63,
+   "humidity": 59,
    "pressure": 1012.5
   },
-  "IMARAT24": {
-   "obsTime": 1795501878,
-   "temp": 15.7,
-   "dewpt": 8.1,
-   "humidity": 61,
-   "pressure": 1008.8
-  },
   "IMARAT19": {
-   "obsTime": 1795501879,
-   "temp": 14.7,
-   "dewpt": 8.3,
-   "humidity": 66,
+   "obsTime": 1795502778,
+   "temp": 14.2,
+   "dewpt": 7.7,
+   "humidity": 65,
    "pressure": 1021
   },
+  "IMARAT24": {
+   "obsTime": 1795502778,
+   "temp": 14.6,
+   "dewpt": 7.3,
+   "humidity": 62,
+   "pressure": 1008.8
+  },
   "IMARAT16": {
-   "obsTime": 1795501800,
-   "temp": 14.9,
-   "dewpt": 8.6,
+   "obsTime": 1795502400,
+   "temp": 14.2,
+   "dewpt": 7.9,
    "humidity": 66,
    "pressure": 1020.7
   }
