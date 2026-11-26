@@ -1,68 +1,68 @@
 {
- "fetched": "2026-11-26T19:01:43.711Z",
+ "fetched": "2026-11-26T19:16:53.746Z",
  "stations": {
+  "IARGYR9": {
+   "obsTime": 1795720514,
+   "temp": 17.2,
+   "dewpt": 14.3,
+   "humidity": 83,
+   "pressure": 1011.2
+  },
+  "IARGYR7": {
+   "obsTime": 1795720592,
+   "temp": 17.1,
+   "dewpt": 13.8,
+   "humidity": 81,
+   "pressure": 1024.4
+  },
+  "IALIMO14": {
+   "obsTime": 1795720563,
+   "temp": 17,
+   "dewpt": 14.3,
+   "humidity": 84,
+   "pressure": 1008.8
+  },
   "IALIMO16": {
-   "obsTime": 1795719664,
+   "obsTime": 1795720589,
    "temp": 17.4,
    "dewpt": 14,
    "humidity": 81,
    "pressure": 1009.8
   },
   "IARGYR10": {
-   "obsTime": 1795719638,
+   "obsTime": 1795720554,
    "temp": 17.2,
    "dewpt": 14,
    "humidity": 82,
    "pressure": 1025.1
   },
-  "IALIMO14": {
-   "obsTime": 1795719663,
-   "temp": 17.1,
-   "dewpt": 14.2,
-   "humidity": 83,
-   "pressure": 1008.8
-  },
-  "IARGYR9": {
-   "obsTime": 1795719576,
-   "temp": 17.3,
-   "dewpt": 14.4,
-   "humidity": 83,
-   "pressure": 1011.2
-  },
-  "IARGYR7": {
-   "obsTime": 1795719668,
-   "temp": 17.1,
-   "dewpt": 13.8,
-   "humidity": 81,
-   "pressure": 1024
-  },
   "IILIOU4": {
-   "obsTime": 1795719681,
-   "temp": 17.3,
+   "obsTime": 1795720599,
+   "temp": 17.2,
    "dewpt": 13.5,
-   "humidity": 78,
+   "humidity": 79,
    "pressure": 1012.5
   },
-  "IMARAT24": {
-   "obsTime": 1795719691,
-   "temp": 15.9,
-   "dewpt": 13,
-   "humidity": 83,
-   "pressure": 1007.8
-  },
   "IMARAT19": {
-   "obsTime": 1795719691,
+   "obsTime": 1795720603,
    "temp": 14.1,
-   "dewpt": 12.4,
-   "humidity": 89,
+   "dewpt": 12.5,
+   "humidity": 90,
    "pressure": 1020
   },
   "IMARAT16": {
-   "obsTime": 1795719600,
-   "temp": 16.2,
-   "dewpt": -12.3,
-   "humidity": 13,
+   "obsTime": 1795720200,
+   "temp": 15.8,
+   "dewpt": -10.8,
+   "humidity": 15,
    "pressure": 1020
+  },
+  "IMARAT24": {
+   "obsTime": 1795720603,
+   "temp": 15.5,
+   "dewpt": 12.7,
+   "humidity": 83,
+   "pressure": 1007.8
   }
  }
 }
