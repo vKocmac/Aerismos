@@ -1,64 +1,64 @@
 {
- "fetched": "2026-11-27T21:16:58.110Z",
+ "fetched": "2026-11-27T21:32:16.150Z",
  "stations": {
-  "IARGYR9": {
-   "obsTime": 1795814057,
-   "temp": 17.5,
-   "dewpt": 14.7,
-   "humidity": 84,
-   "pressure": 1006.8
-  },
-  "IARGYR10": {
-   "obsTime": 1795814165,
-   "temp": 18,
-   "dewpt": 14.6,
-   "humidity": 81,
-   "pressure": 1020.7
-  },
   "IARGYR7": {
-   "obsTime": 1795814190,
+   "obsTime": 1795815091,
    "temp": 17.7,
-   "dewpt": 14.1,
-   "humidity": 80,
+   "dewpt": 14.4,
+   "humidity": 81,
    "pressure": 1020.3
   },
+  "IARGYR9": {
+   "obsTime": 1795814989,
+   "temp": 17.5,
+   "dewpt": 14.8,
+   "humidity": 85,
+   "pressure": 1006.8
+  },
+  "IALIMO14": {
+   "obsTime": 1795815062,
+   "temp": 17.3,
+   "dewpt": 14.9,
+   "humidity": 86,
+   "pressure": 1005.1
+  },
   "IALIMO16": {
-   "obsTime": 1795814180,
-   "temp": 17.8,
-   "dewpt": 15.2,
+   "obsTime": 1795815104,
+   "temp": 17.6,
+   "dewpt": 15,
    "humidity": 85,
    "pressure": 1005.8
   },
-  "IALIMO14": {
-   "obsTime": 1795814162,
-   "temp": 17.4,
-   "dewpt": 15.2,
-   "humidity": 87,
-   "pressure": 1005.1
-  },
-  "IMARAT19": {
-   "obsTime": 1795814202,
-   "temp": 15.2,
-   "dewpt": 13.7,
-   "humidity": 91,
-   "pressure": 1015.9
-  },
-  "IILIOU4": {
-   "obsTime": 1795814190,
+  "IARGYR10": {
+   "obsTime": 1795815081,
    "temp": 17.8,
-   "dewpt": 13.9,
-   "humidity": 78,
-   "pressure": 1008.8
+   "dewpt": 14.7,
+   "humidity": 82,
+   "pressure": 1020.7
   },
   "IMARAT24": {
-   "obsTime": 1795814203,
+   "obsTime": 1795815127,
    "temp": 14.5,
    "dewpt": 13.3,
    "humidity": 92,
    "pressure": 1004.1
   },
+  "IILIOU4": {
+   "obsTime": 1795815118,
+   "temp": 17.8,
+   "dewpt": 14.1,
+   "humidity": 79,
+   "pressure": 1008.8
+  },
+  "IMARAT19": {
+   "obsTime": 1795815114,
+   "temp": 15.6,
+   "dewpt": 14.1,
+   "humidity": 91,
+   "pressure": 1015.9
+  },
   "IMARAT16": {
-   "obsTime": 1795813800,
+   "obsTime": 1795815000,
    "temp": 14.9,
    "dewpt": -40.8,
    "humidity": 1,
